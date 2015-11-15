@@ -7,7 +7,9 @@ var Search = React.createClass({
 	},
 
 	handleChange(event) {
-		this.setState({value: event.target.value});
+        this.props.onFilterInput(
+            event.target.value
+        )
 	},
 
 	handleSubmit(event){
@@ -30,7 +32,7 @@ var Search = React.createClass({
 					<div className="col-xs-12">
 						<div className="input-group">
 							<input type="text" className="form-control" id="address" placeholder="Find a location..." 
-							value={this.state.value} onChange={this.handleChange} />
+							value={this.props.filterText} onChange={this.handleChange} />
 							<span className="input-group-btn">
 								<span className="glyphicon glyphicon-search" aria-hidden="true"></span>
 							</span>

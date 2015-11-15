@@ -30,7 +30,8 @@ var App = React.createClass({
 			mapCoordinates: {
                 lat: 46.12363029999999,
                 lng: 32.29127140000003
-            }
+            },
+            filterText: ''
 		};
 	},
 
@@ -108,9 +109,9 @@ var App = React.createClass({
 	searchForAddress(data){
 		
 		var self = this;
-		// We will use GMaps' geocode functionality,
-		// which is built on top of the Google Maps API
-
+        this.setState({
+            filterText: data.title
+        })
         console.log(data)
         self.setState({
             removeMarkers: true,
@@ -119,27 +120,12 @@ var App = React.createClass({
                 lng: data.lng
             }
         });
-/*		GMaps.geocode({
-			address: address,
-			callback: function(results, status) {
-
-				if (status !== 'OK') return;
-
-				var latlng = results[0].geometry.location;
-
-				self.setState({
-                    remove: true,
-					currentAddress: results[0].formatted_address,
-					mapCoordinates: {
-						lat: latlng.lat(),
-						lng: latlng.lng()
-					}
-				});
-
-			}
-		});*/
 	},
-
+    handleFilterText(filterText){
+        this.setState({
+            filterText: filterText
+        })
+    },
 	render(){
 
 		return (
@@ -147,7 +133,7 @@ var App = React.createClass({
 			<div>
 				<h1>Your Google Maps Locations</h1>
                 <div className="main-map-block">
-                    <Search onSearch={this.searchForAddress} />
+                    <Search onSearch={this.searchForAddress} onFilterInput={this.handleFilterText} filterText={this.state.filterText}/>
                     <Map removeMarkers={this.state.removeMarkers} lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
                 </div>
                 <div className="mark-map-block">
@@ -155,7 +141,7 @@ var App = React.createClass({
                     favorite={this.isAddressInFavorites(this.state.currentAddress)}
                     onFavoriteToggle={this.toggleFavorite} />
 
-                    <LocationList locations={this.state.favorites} activeLocationAddress={this.state.currentAddress}
+                    <LocationList filterText={this.state.filterText} locations={this.state.favorites} activeLocationAddress={this.state.currentAddress}
                     onClick={this.searchForAddress} />
                 </div>
 			</div>
