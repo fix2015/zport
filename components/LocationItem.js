@@ -21,8 +21,10 @@ var LocationItem = React.createClass({
                 <div class="raw">
                     <div class="col-md-4">
                         <h3>{this.props.data.title}</h3>
-                        <h3>{this.props.data.type}</h3>
                         <ul class="list-group">
+                            <li class="list-group-item">
+                                <i class="glyphicon glyphicon-star"></i> Тип: {this.props.data.type}
+                            </li>
                             <li class="list-group-item">
                                 <i class="glyphicon glyphicon-star"></i> Дистанция: {this.props.data.distance} / 5
                             </li>

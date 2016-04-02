@@ -4,8 +4,20 @@ var Search = require('./Search');
 var Map = require('./Map');
 var CurrentLocation = require('./CurrentLocation');
 var LocationList = require('./LocationList');
+var SearchField = require('./SearchField');
+var SearchComponent = require('./SearchComponent');
+
 restaurants = require('../restaurants');
 gmarkers = [];
+
+var filterData =[
+     	{type: 'chast', distance: '100', toilet: 'true',  tv: 'true', refrigeter: 'true', conditioner: 'true', wifi: 'true', eat: 'true', children: 'true'},
+ 	  	{type: 'pansionat', distance: '200', toilet: 'false',  tv: 'false', refrigeter: 'false', conditioner: 'false', wifi: 'false', eat: 'false', children: 'false'},
+     	{type: 'gost', distance: '500'},
+     	{type: 'snatotiy', distance: '800'},
+     	{type: 'oteli', distance: '900'}
+
+     ];
 
 var App = React.createClass({
 
@@ -31,7 +43,8 @@ var App = React.createClass({
                 lat: 46.12363029999999,
                 lng: 32.29127140000003
             },
-            filterText: ''
+            filterText: '',
+            filter: ''
 		};
 	},
 
@@ -105,14 +118,18 @@ var App = React.createClass({
 
 		return false;
 	},
-
+	filterFunc(data){
+		this.setState({
+            filter: data
+        })
+        console.log(this.state.filter)
+	},
 	searchForAddress(data){
-		
 		var self = this;
         this.setState({
             filterText: data.title
         })
-        console.log(data)
+
         self.setState({
             removeMarkers: true,
             mapCoordinates: {
@@ -133,16 +150,24 @@ var App = React.createClass({
 			<div>
 				<h1>Your Google Maps Locations</h1>
                 <div className="main-map-block">
-                    <Search onSearch={this.searchForAddress} onFilterInput={this.handleFilterText} filterText={this.state.filterText}/>
-                    <Map removeMarkers={this.state.removeMarkers} lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
+                    <div className="col-md-12">
+                        <SearchComponent
+                            onFilter={this.filterFunc}
+                            data={filterData}
+                            onSearch={this.searchForAddress}
+                            onFilterInput={this.handleFilterText}
+                            filterText={this.state.filterText}/>
+                        <SearchField onSearch={this.searchForAddress} onFilterInput={this.handleFilterText} filterText={this.state.filterText}/>
+                    </div>
                 </div>
-                <div className="mark-map-block">
-                    <CurrentLocation address={this.state.currentAddress}
-                    favorite={this.isAddressInFavorites(this.state.currentAddress)}
-                    onFavoriteToggle={this.toggleFavorite} />
-
-                    <LocationList filterText={this.state.filterText} locations={this.state.favorites} activeLocationAddress={this.state.currentAddress}
-                    onClick={this.searchForAddress} />
+                <div className="col-md-12">
+                    <div className="col-md-7">
+                        <Map filter= {this.state.filter} filterText={this.state.filterText} locations={this.state.favorites} removeMarkers={this.state.removeMarkers} lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
+                    </div>
+                    <div className="mark-map-block col-md-5">
+                        <LocationList filterText={this.state.filterText} locations={this.state.favorites} activeLocationAddress={this.state.currentAddress}
+                        onClick={this.searchForAddress} />
+                    </div>
                 </div>
 			</div>
 
@@ -152,3 +177,8 @@ var App = React.createClass({
 });
 
 module.exports = App;
+/*
+ <CurrentLocation address={this.state.currentAddress}
+ favorite={this.isAddressInFavorites(this.state.currentAddress)}
+ onFavoriteToggle={this.toggleFavorite} />
+ */

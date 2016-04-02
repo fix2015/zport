@@ -13,7 +13,7 @@ var Search = React.createClass({
 	},
 
 	handleSubmit(event){
-		
+    console.info('okok1')
 		event.preventDefault();
 		
 		// When the form is submitted, call the onSearch callback that is passed to the component
