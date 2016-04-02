@@ -4,6 +4,18 @@ var moment = require('moment');
 
 var LocationItem = React.createClass({
 
+    getInitialState: function () {
+        return {hover: false};
+    },
+
+    mouseOver: function () {
+        this.setState({hover: true});
+    },
+
+    mouseOut: function () {
+        this.setState({hover: false});
+    },
+
 	handleClick(){
 		this.props.onClick(this.props.data);
 	},
@@ -15,12 +27,16 @@ var LocationItem = React.createClass({
 		if(this.props.active){
 			cn += " active-location";
 		}
-
+        if(this.state.hover==true){
+            this.state.toogle = 'location-block-open'
+        }else{
+            this.state.toogle = 'location-block-close'
+        }
 		return (
-			<a className={cn} onClick={this.handleClick}>
-                <div class="raw">
-                    <div class="col-md-4">
-                        <h3>{this.props.data.title}</h3>
+			<a className={cn} onClick={this.handleClick} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
+                <div class="raw" className="location-block">
+                    <div className={this.state.toogle} >
+                        <h4 className="location-title">{this.props.data.title} - {this.state.hover}</h4>
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <i class="glyphicon glyphicon-star"></i> Тип: {this.props.data.type}
@@ -50,6 +66,7 @@ var LocationItem = React.createClass({
                                 <i class="glyphicon glyphicon-globe"></i> Питание: {this.props.data.eat}
                             </li>
                         </ul>
+                        <span className="glyphicon glyphicon-zoom-in"></span>
                     </div>
                 </div>
 			</a>

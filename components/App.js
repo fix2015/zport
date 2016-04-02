@@ -13,7 +13,7 @@ gmarkers = [];
 var filterData =[
      	{type: 'chast', distance: '100', toilet: 'true',  tv: 'true', refrigeter: 'true', conditioner: 'true', wifi: 'true', eat: 'true', children: 'true'},
  	  	{type: 'pansionat', distance: '200', toilet: 'false',  tv: 'false', refrigeter: 'false', conditioner: 'false', wifi: 'false', eat: 'false', children: 'false'},
-     	{type: 'gost', distance: '500'},
+     	{type: 'hotel', distance: '500'},
      	{type: 'snatotiy', distance: '800'},
      	{type: 'oteli', distance: '900'}
 
@@ -122,7 +122,6 @@ var App = React.createClass({
 		this.setState({
             filter: data
         })
-        console.log(this.state.filter)
 	},
 	searchForAddress(data){
 		var self = this;
@@ -143,30 +142,47 @@ var App = React.createClass({
             filterText: filterText
         })
     },
+    clearFilter(){
+        this.setState({
+            filterText: ''
+        })
+        this.setState({
+            filter: {
+                type: '',
+                distance: '',
+                toilet: '',
+                tv: '',
+                refrigeter: '',
+                conditioner: '',
+                wifi: '',
+                eat: '',
+                children: ''
+            }
+        })
+    },
 	render(){
 
 		return (
 
 			<div>
-				<h1>Your Google Maps Locations</h1>
-                <div className="main-map-block">
-                    <div className="col-md-12">
-                        <SearchComponent
-                            onFilter={this.filterFunc}
-                            data={filterData}
-                            onSearch={this.searchForAddress}
-                            onFilterInput={this.handleFilterText}
-                            filterText={this.state.filterText}/>
-                        <SearchField onSearch={this.searchForAddress} onFilterInput={this.handleFilterText} filterText={this.state.filterText}/>
-                    </div>
-                </div>
+				<h2>Поиск жилья в железном порту</h2>
                 <div className="col-md-12">
+                    <SearchField onSearch={this.searchForAddress} onFilterInput={this.handleFilterText} filterText={this.state.filterText}/>
                     <div className="col-md-7">
                         <Map filter= {this.state.filter} filterText={this.state.filterText} locations={this.state.favorites} removeMarkers={this.state.removeMarkers} lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
                     </div>
                     <div className="mark-map-block col-md-5">
-                        <LocationList filterText={this.state.filterText} locations={this.state.favorites} activeLocationAddress={this.state.currentAddress}
+                        <LocationList filter= {this.state.filter} filterText={this.state.filterText} clearFilter={this.clearFilter} locations={this.state.favorites} activeLocationAddress={this.state.currentAddress}
                         onClick={this.searchForAddress} />
+                    </div>
+                </div>
+                <div className="main-map-block">
+                    <div className="col-md-12">
+                        <SearchComponent
+                        onFilter={this.filterFunc}
+                        data={filterData}
+                        onSearch={this.searchForAddress}
+                        filterText={this.state.filterText}/>
                     </div>
                 </div>
 			</div>

@@ -10,9 +10,29 @@ var Map = React.createClass({
 		this.componentDidUpdate();
 	},
     infoWindow(data){
+        var type=''
+        switch (data.type){
+            case 'chast':
+                type = 'Частный сектор'
+                break;
+            case 'pansionat':
+                type = 'Пансионат'
+                break;
+            case 'snatotiy':
+                type = 'Отель'
+                break;
+            case 'chast':
+                type = 'Санаторий'
+                break;
+            case 'hotel':
+                type = 'Готель'
+                break;
+            default :
+                type = 'Частный сектор'
+        }
         return '<div class="col-md-12" style="text-align: left">'+
-            '<h3>'+data.title+'</h3>'+
-            '<h3>'+data.type+'</h3>'+
+            '<h4>'+data.title+'</h4>'+
+            '<h4>'+type+'</h4>'+
             '<ul class="list-group" style="padding: 0; margin-top: 0px;">'+
             '<li class="list-group-item">'+
             '<i class="glyphicon glyphicon-star"></i> Дистанция: '+data.distance+
@@ -64,6 +84,7 @@ var Map = React.createClass({
 	},
     addMarkers(map, props){
         var self = this;
+        console.log('addMarkers')
         console.log(props)
         var locations = this.props.locations
         /*
@@ -86,8 +107,14 @@ var Map = React.createClass({
                 }
             })
 */
+
             .filter(function(data){
-                return data.title.toLowerCase().indexOf(props.filterText.toLowerCase()) > -1;
+                    return data.title.toLowerCase().indexOf(props.filterText.toLowerCase()) > -1;
+            })
+            .filter(function(data){
+                if(props.filter!='' && data.type){
+                    return data.type.toLowerCase().indexOf(props.filter.type.toLowerCase()) > -1;
+                }
             })
             .map(function(data){
                 var marker = map.addMarker({
