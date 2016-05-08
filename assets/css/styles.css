@@ -1,3 +1,6 @@
+img {
+    width:100%
+}
 .container-fluid {
     max-width: 980px;
     text-align: center;
@@ -139,15 +142,73 @@ a.list-group-item span.createdAt {
     right: 20px;
     display: block;
 }
+.caption-of-result{
+    position: absolute;
+    color: #fff !important;
+    right: 26px;
+    top: 12px !important;
+}
 .list-group .glyphicon-remove{
     position: absolute;
-    color: #fff;
-    right: 26px;
-    top: 12px;
+    color: #000;
+    top: 3px;
 }
 .main-map-block .btn{
     width:100%
 }
 .main-map-block thead{
     text-align: center;
+}
+.price-table{
+    margin: 0 auto;
+}
+.price-table th{
+    text-align: center;
+}
+.map-list-preview .glyphicon-remove{
+    color: #000 !important;
+}
+.price-table-block{
+    padding: 10px 0;
+}
+.price-table-block .price-table-block-img{
+    padding: 5px;
+}
+.price-table, .price-table thead th{
+    text-align: left;
+}
+.location-block-description, .main-block{
+    border-bottom: 1px solid #AAB1B9;
+    padding: 10px 0;
+}
+.main-map-block .btn{
+    padding: 8px 5px;
+}
+.main-map-block{
+    font-size: 14px;
+}
+.filter-head{
+    max-width: 50px;
+}
+.main-map-block thead th{
+    word-wrap: break-word;
+}
+.longName{
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 3em;
+    word-wrap: break-word !important;
+}
+.breadcumps-line i{
+    padding-top: 16px;
+    font-size:11px;
+}
+.second-breadcumps{
+    text-align: left;
+}
+.place-title{
+    padding-bottom: 10px;
 }

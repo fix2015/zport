@@ -23,6 +23,51 @@ var LocationList = React.createClass({
                     return data.type.toLowerCase().indexOf(props.filter.type.toLowerCase()) > -1;
                 }
             })
+            .filter(function(data){
+                if(props.filter!='' && data.toilet){
+                    return data.toilet.toLowerCase().indexOf(props.filter.toilet.toLowerCase()) > -1;
+                }
+            })
+            .filter(function(data){
+                if(props.filter!='' && data.distance){
+                    return data.distance.toLowerCase().indexOf(props.filter.distance.toLowerCase()) > -1;
+                }
+            })
+            .filter(function(data){
+                if(props.filter!='' && data.tv){
+                    return data.tv.toLowerCase().indexOf(props.filter.tv.toLowerCase()) > -1;
+                }
+            })
+            .filter(function(data){
+                if(props.filter!='' && data.refrigeter){
+                    return data.refrigeter.toLowerCase().indexOf(props.filter.refrigeter.toLowerCase()) > -1;
+                }
+            })
+            .filter(function(data){
+                if(props.filter!='' && data.conditioner){
+                    return data.conditioner.toLowerCase().indexOf(props.filter.conditioner.toLowerCase()) > -1;
+                }
+            })
+            .filter(function(data){
+                if(props.filter!='' && data.wifi){
+                    return data.wifi.toLowerCase().indexOf(props.filter.wifi.toLowerCase()) > -1;
+                }
+            })
+            .filter(function(data){
+                if(props.filter!='' && data.eat){
+                    return data.eat.toLowerCase().indexOf(props.filter.eat.toLowerCase()) > -1;
+                }
+            })
+            .filter(function(data){
+                if(props.filter!='' && data.swiming){
+                    return data.swiming.toLowerCase().indexOf(props.filter.swiming.toLowerCase()) > -1;
+                }
+            })
+            .filter(function(data){
+                if(props.filter!='' && data.parking){
+                    return data.parking.toLowerCase().indexOf(props.filter.parking.toLowerCase()) > -1;
+                }
+            })
             .map(function(l){
                 num++;
 			var active = self.props.activeLocationAddress == l.address;
@@ -38,7 +83,7 @@ var LocationList = React.createClass({
 		return (
 			<div className="list-group col-xs-12">
 				<span className="list-group-item list-group-item-first active">Результаты: {num}</span>
-                <span className="glyphicon glyphicon-remove" onClick={this.clearFilter}></span>
+                <span className="caption-of-result glyphicon glyphicon-remove" onClick={this.clearFilter}></span>
 				{locations}
 			</div>
 		)

@@ -1,5 +1,5 @@
 var React = require('react');
-
+var helper = require('./helper');
 
 var SearchComponent = React.createClass({
 
@@ -13,20 +13,12 @@ var SearchComponent = React.createClass({
         conditioner: '',
         wifi: '',
         eat: '',
-        children: ''
+        children: '',
+        swiming: '',
+        parking: ''
     }
     this.props.onFilter(filter);
-    return {
-      type: 'chast',
-      distance: '100',
-      toilet: 'true',
-      tv: 'true',
-      refrigeter: 'true',
-      conditioner: 'true',
-      wifi: 'true',
-      eat: 'true',
-      children: 'true'
-    };
+    return filter;
   },
   pushToFilter(){
 		var filter ={
@@ -38,7 +30,9 @@ var SearchComponent = React.createClass({
 		      conditioner: this.state.conditioner,
 		      wifi: this.state.wifi,
 		      eat: this.state.eat,
-		      children: this.state.children
+		      children: this.state.children,
+              swiming: this.state.swiming,
+              parking: this.state.parking
 		    };
     this.props.onFilter(filter);
   },
@@ -59,7 +53,7 @@ var SearchComponent = React.createClass({
         var self=this;
         setTimeout(function(){
             self.pushToFilter();
-        },200)
+        },2000)
   },
   onToiletChanged(e) {
     this.setState({
@@ -124,29 +118,27 @@ var SearchComponent = React.createClass({
         self.pushToFilter();
     },200)
   },
+  onParkingChanged(e) {
+    this.setState({
+      children: e.currentTarget.value
+      });
+    var self=this;
+    setTimeout(function(){
+        self.pushToFilter();
+    },200)
+  },
+  onSwimingChanged(e) {
+    this.setState({
+      children: e.currentTarget.value
+      });
+    var self=this;
+    setTimeout(function(){
+        self.pushToFilter();
+    },200)
+  },
 	render() {
 		var params = this.state;
 		var resultRows = this.props.data.map(function(result){
-            var type=''
-            switch (result.type){
-                case 'chast':
-                    type = 'Частный сектор'
-                    break;
-                case 'pansionat':
-                    type = 'Пансионат'
-                    break;
-                case 'snatotiy':
-                    type = 'Отель'
-                    break;
-                case 'chast':
-                    type = 'Санаторий'
-                    break;
-                case 'hotel':
-                    type = 'Готель'
-                    break;
-                default :
-                    type = 'Частный сектор'
-            }
 			return (
 	             <tbody>
 	                    <tr>
@@ -154,11 +146,12 @@ var SearchComponent = React.createClass({
 		                        <label className={params.type == result.type? 'btn btn-default active' : 'btn btn-default' }>
 		                        	<input type="radio" 
 		                        		   name="type" 
-		                                   value={result.type} 
+		                                   value={result.type}
+                                           data-methold='type'
 		                                   className={params.type == result.type? 'hide' : 'hide' }
 		                                   checked={params.type == result.type} 
 		                                   onChange={this.onTypeChanged} />
-                                  <span >{type}</span>
+                                  <span >{helper.type(result.type)}</span>
 	 							</label>
                            </td>
  	                        <td>
@@ -179,7 +172,7 @@ var SearchComponent = React.createClass({
 		                                   checked={params.toilet == result.toilet} 
 		                                   className={params.toilet == result.toilet? 'hide' : 'hide' }
 		                                   onChange={this.onToiletChanged} />
-										<span >{result.toilet}</span>
+										<span><i className={result.toilet=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
@@ -191,7 +184,7 @@ var SearchComponent = React.createClass({
 		                                   checked={params.tv == result.tv} 
 		                                   className={result.tv ? 'hide' : 'hide' }
 		                                   onChange={this.onTvChanged} />
-										<span >{result.onTvChanged}</span>
+										<span><i className={result.tv=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
@@ -203,7 +196,7 @@ var SearchComponent = React.createClass({
 		                                   checked={params.refrigeter == result.refrigeter} 
 		                                   className={result.refrigeter ? 'hide' : 'hide' }
 		                                   onChange={this.onRefrigeterChanged} />
-										<span >{result.onRefrigeterChanged}</span>
+										<span><i className={result.refrigeter=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
@@ -215,7 +208,7 @@ var SearchComponent = React.createClass({
 		                                   checked={params.conditioner == result.conditioner} 
 		                                   className={result.conditioner ? 'hide' : 'hide' }
 		                                   onChange={this.onConditionerChanged} />
-										<span >{result.onConditionerChanged}</span>
+										<span><i className={result.conditioner=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
@@ -227,7 +220,7 @@ var SearchComponent = React.createClass({
 		                                   checked={params.wifi == result.wifi} 
 		                                   className={result.wifi ? 'hide' : 'hide' }
 		                                   onChange={this.onWifiChanged} />
-										<span >{result.onWifiChanged}</span>
+										<span><i className={result.wifi=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
@@ -239,7 +232,7 @@ var SearchComponent = React.createClass({
 		                                   checked={params.eat == result.eat} 
 		                                   className={result.eat ? 'hide' : 'hide' }
 		                                   onChange={this.onEatChanged} />
-										<span>{result.onEatChanged}</span>
+										<span><i className={result.eat=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
@@ -251,7 +244,31 @@ var SearchComponent = React.createClass({
 		                                   checked={params.children == result.children} 
 		                                   className={result.children ? 'hide' : 'hide' }
 		                                   onChange={this.onChildrenChanged} />
-										<span >{result.onChildrenChanged}</span>
+										<span><i className={result.children=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+		 							</label>
+	 							</div>
+                           </td>
+                            <td>
+  	                       		<div className={result.swiming ? 'show' : 'hide'}>
+	  	                        	<label className={params.swiming == result.swiming? 'btn btn-default active' : 'btn btn-default' }>
+	  	                        	<input type="radio" name="swiming"
+		                                   value={result.swiming}
+		                                   checked={params.swiming == result.swiming}
+		                                   className={result.swiming ? 'hide' : 'hide' }
+		                                   onChange={this.onSwimingChanged} />
+										<span><i className={result.swiming=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+		 							</label>
+	 							</div>
+                           </td>
+                            <td>
+  	                       		<div className={result.parking ? 'show' : 'hide'}>
+	  	                        	<label className={params.parking == result.parking? 'btn btn-default active' : 'btn btn-default' }>
+	  	                        	<input type="radio" name="parking"
+		                                   value={result.parking}
+		                                   checked={params.parking == result.parking}
+		                                   className={result.parking ? 'hide' : 'hide' }
+		                                   onChange={this.onParkingChanged} />
+										<span><i className={result.parking=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
@@ -264,14 +281,16 @@ var SearchComponent = React.createClass({
                    <thead>
                        <tr>
                            <th>Тип</th>
-                           <th>Дистанция</th>
-                           <th>Удобвства</th>
-                           <th>Телевизор</th>
-                           <th>Холодильник</th>
-                           <th>Кондиционер</th>
-                           <th>wifi</th>
-                           <th>Питания</th>
-                           <th>Детская площадка</th>
+                           <th className='filter-head '>Дистанция(м)</th>
+                           <th className='filter-head'>Удобвства</th>
+                           <th className='filter-head'>Телевизор</th>
+                           <th className='filter-head'>Холодильник</th>
+                           <th className='filter-head'>Кондиционер</th>
+                           <th className='filter-head'>wifi</th>
+                           <th className='filter-head'>Питания</th>
+                           <th className='filter-head'>Детская площадка</th>
+                           <th className='filter-head'>Бассейн</th>
+                           <th className='filter-head'>Парковка</th>
                        </tr>
                    </thead>
                     {resultRows}

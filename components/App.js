@@ -6,36 +6,143 @@ var CurrentLocation = require('./CurrentLocation');
 var LocationList = require('./LocationList');
 var SearchField = require('./SearchField');
 var SearchComponent = require('./SearchComponent');
-
 restaurants = require('../restaurants');
+var helper = require('./helper');
+var MainNav = require('./MainNav');
 gmarkers = [];
 
-var filterData =[
-     	{type: 'chast', distance: '100', toilet: 'true',  tv: 'true', refrigeter: 'true', conditioner: 'true', wifi: 'true', eat: 'true', children: 'true'},
- 	  	{type: 'pansionat', distance: '200', toilet: 'false',  tv: 'false', refrigeter: 'false', conditioner: 'false', wifi: 'false', eat: 'false', children: 'false'},
-     	{type: 'hotel', distance: '500'},
-     	{type: 'snatotiy', distance: '800'},
-     	{type: 'oteli', distance: '900'}
 
-     ];
+var filterData = helper.filterData;
+
+
+//console.log('restaurants');
+//console.log(restaurants);
+//console.log(restaurants.length);
+/*var pans=[]
+for(var i=0; i<restaurants.length; i++){
+    pans.push({
+        'id' : restaurants[i].id,
+        'title' : restaurants[i].title,
+        'type' : (restaurants[i].type ? restaurants[i].type : "chast" ),
+        'folder' : "irina",
+        'children' : "true",
+        'conditioner' : "true",
+        'distance' : "true",
+        'dush' : "true",
+        'eat' : "true",
+        'toilet' : "true",
+        'tv' :"true",
+        'wifi' : "true",
+        'refrigeter' :"true",
+        'swiming' : "true",
+        'room':[{
+                'title' : "2-х местный номер эконом",
+                'folder-img' : "twoekonom",
+                'conditioner' : "true",
+                'dush' : "true",
+                'toilet' : "true",
+                'tv' :"true",
+                'wifi' : "true",
+                'refrigeter' :"true",
+                'swiming' : "true",
+                'price' : [{[0]:'май',[1]:'50'},
+                        {[0]:'июнь',[1]:'50'},
+                        {[0]:'июль',[1]:'50'},
+                        {[0]:'август',[1]:'50'},
+                        {[0]:'сентябрь',[1]:'50'},
+                        {[0]:'октябрь',[1]:'50'}]
+                },{
+                    'title' : "3-х местный номер эконом",
+                    'folder-img' : "twoekonom",
+                    'conditioner' : "true",
+                    'dush' : "true",
+                    'toilet' : "true",
+                    'tv' :"true",
+                    'wifi' : "true",
+                    'refrigeter' :"true",
+                    'swiming' : "true",
+                    'price' : [{[0]:'май',[1]:'50'},
+                        {[0]:'июнь',[1]:'50'},
+                        {[0]:'июль',[1]:'50'},
+                        {[0]:'август',[1]:'50'},
+                        {[0]:'сентябрь',[1]:'50'},
+                        {[0]:'октябрь',[1]:'50'}]
+                }
+        ],
+            'lat' : restaurants[i].lat,
+            'lng' : restaurants[i].lng
+    });
+}
+console.log(JSON.stringify(pans))*/
+/* pans[i].id = restaurants[i].id
+    pans[i].title = restaurants[i].title
+    pans[i].type = restaurants[i].type
+
+    pans[i].children = true
+    pans[i].conditioner = true
+    pans[i].distance = true
+    pans[i].dush = true
+    pans[i].eat = true
+    pans[i].toilet = true
+    pans[i].tv = true
+    pans[i].wifi = true
+    pans[i].refrigeter = true
+    pans[i].swiming = true
+    pans[i].price = [
+        [    {[0]:'май',[1]:'50'},
+            {[0]:'июнь',[1]:'50'},
+            {[0]:'июль',[1]:'50'},
+            {[0]:'август',[1]:'50'},
+            {[0]:'сентябрь',[1]:'50'},
+            {[0]:'октябрь',[1]:'50'}
+            ],
+            [    {[0]:'май',[1]:'50'},
+            {[0]:'июнь',[1]:'50'},
+            {[0]:'июль',[1]:'50'},
+            {[0]:'август',[1]:'50'},
+            {[0]:'сентябрь',[1]:'50'},
+            {[0]:'октябрь',[1]:'50'}
+            ],
+            [    {[0]:'май',[1]:'50'},
+            {[0]:'июнь',[1]:'50'},
+            {[0]:'июль',[1]:'50'},
+            {[0]:'август',[1]:'50'},
+            {[0]:'сентябрь',[1]:'50'},
+            {[0]:'октябрь',[1]:'50'}
+            ]
+        ]
+    pans[i].foto = {2: [
+    'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+    'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300'
+    ],
+        3: [
+        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300'
+    ],
+        4: [
+        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300'
+    ]}
+    pans[i].lat = restaurants[i].lat
+    pans[i].lng = restaurants[i].lng*//*
+
+}
+
+console.log(JSON.stringify(pans));
+
+*/
+
+
 
 var App = React.createClass({
 
 	getInitialState(){
-
-		// Extract the favorite locations from local storage
-
+        var type = (this.props.params.type ? this.props.params.type : '');
 		var favorites = [];
-
-/*
-		if(localStorage.favorites){
-			favorites = JSON.parse(localStorage.favorites);
-		}
-*/
         favorites = restaurants;
-
-		// Nobody would get mad if we center it on Paris by default
-
 		return {
 			favorites: favorites,
 			currentAddress: 'Zport',
@@ -44,10 +151,21 @@ var App = React.createClass({
                 lng: 32.29127140000003
             },
             filterText: '',
-            filter: ''
-		};
+            filter:  {
+                type: type,
+                distance: '',
+                toilet: '',
+                tv: '',
+                refrigeter: '',
+                conditioner: '',
+                wifi: '',
+                eat: '',
+                children: '',
+                swiming: '',
+                parking: ''
+            }
+        };
 	},
-
 	toggleFavorite(address){
 
 		if(this.isAddressInFavorites(address)){
@@ -156,16 +274,44 @@ var App = React.createClass({
                 conditioner: '',
                 wifi: '',
                 eat: '',
-                children: ''
+                children: '',
+                swiming: '',
+                parking: ''
             }
         })
     },
+    typeFilter(){
+        if(this.props.params.type){
+            this.setState({
+                filter: {
+                    type: this.props.params.type,
+                    distance: '',
+                    toilet: '',
+                    tv: '',
+                    refrigeter: '',
+                    conditioner: '',
+                    wifi: '',
+                    eat: '',
+                    children: '',
+                    swiming: '',
+                    parking: ''
+                }
+            })
+        }else{
+            this.clearFilter();
+        }
+
+    },
 	render(){
-
-		return (
-
+    var routeType = this.props.params.type;
+    return (
 			<div>
-				<h2>Поиск жилья в железном порту</h2>
+                <div className="col-md-12">
+                    <MainNav type={routeType} typeFilter={this.typeFilter}></MainNav>
+                </div>
+                <div className="col-md-12">
+				    <h2>Поиск жилья в железном порту</h2>
+                </div>
                 <div className="col-md-12">
                     <SearchField onSearch={this.searchForAddress} onFilterInput={this.handleFilterText} filterText={this.state.filterText}/>
                     <div className="col-md-7">
