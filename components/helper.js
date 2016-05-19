@@ -37,8 +37,8 @@ data.type =  function(data){
     return type;
 };
 data.filterData =[
-    {type: 'chast', distance: '100', toilet: 'true',  tv: 'true', refrigeter: 'true', conditioner: 'true', wifi: 'true', eat: 'true', children: 'true', swiming: 'true', parking: 'true'},
-    {type: 'pansionat', distance: '200', toilet: 'false',  tv: 'false', refrigeter: 'false', conditioner: 'false', wifi: 'false', eat: 'false', children: 'false', swiming: 'false', parking: 'false'},
+    {type: 'chast', distance: '100', toilet: true,  tv: true, refrigeter: true, conditioner: true, wifi: true, eat: true, children: true, swiming: true, parking: true},
+    {type: 'pansionat', distance: '200', toilet: false,  tv: false, refrigeter: false, conditioner: false, wifi: false, eat: false, children: false, swiming: false, parking: false},
     {type: 'hotel', distance: '300'},
     {type: 'sanatoriy', distance: '400'},
     {type: 'otel', distance: '500'},

@@ -9,23 +9,18 @@ var hashHistory = require('react-router').hashHistory;
 var Route = require('react-router').Route;
 var Link = require('react-router').Link
 
-
-
-console.log(ReactDOM)
 ReactDOM.render(
-        <Router history={hashHistory} >
-            <Route path="/" name="Main" component={App}>
-                <Route path="/:type" component={App}/>
-            </Route>
-            <Route path="place"  name="Place" component={Place}>
-                <Route path="/place/:placeId" component={Place}/>
-            </Route>
-        </Router>
+    <Router history={hashHistory} >
+        <Route path="/" name="Main" component={App}>
+            <Route path="/:type" component={App}/>
+        </Route>
+        <Route path="place"  name="Place" component={Place}>
+            <Route path="/place/:placeId" component={Place}/>
+        </Route>
+    </Router>
     ,
     document.getElementById('main')
 );
-
-
 /*console.log(ReactDOM)
 var MyComponent = React.createClass({
     render: function() {

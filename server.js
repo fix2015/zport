@@ -11,7 +11,7 @@ var upload = multer();
 
 var staticSiteOptions = {
     portnum: 8080, // слушать порт 80
-    maxAge: 1000 * 60 * 15 // хранить страницы в кэше пятнадцать минут
+    maxAge: 1000 * 60 * 1 // хранить страницы в кэше пятнадцать минут
 };
 
 var app = express().use(express.static(
@@ -47,4 +47,4 @@ app.get('/foto/:firstFolder/:subFolder', function(req, res){
     },1000)
 });
 
-app.listen(8080);
+app.listen(8083);

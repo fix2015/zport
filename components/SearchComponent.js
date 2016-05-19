@@ -57,7 +57,7 @@ var SearchComponent = React.createClass({
   },
   onToiletChanged(e) {
     this.setState({
-      toilet: e.currentTarget.value
+      toilet: JSON.parse(e.currentTarget.value)
       });
     var self=this;
     setTimeout(function(){
@@ -66,7 +66,7 @@ var SearchComponent = React.createClass({
   },
   onTvChanged(e) {
     this.setState({
-      tv: e.currentTarget.value
+      tv: JSON.parse(e.currentTarget.value)
       });
     var self=this;
     setTimeout(function(){
@@ -75,7 +75,7 @@ var SearchComponent = React.createClass({
   },
   onRefrigeterChanged(e) {
     this.setState({
-      refrigeter: e.currentTarget.value
+      refrigeter: JSON.parse(e.currentTarget.value)
       });
     var self=this;
     setTimeout(function(){
@@ -84,7 +84,7 @@ var SearchComponent = React.createClass({
   },
   onConditionerChanged(e) {
     this.setState({
-      conditioner: e.currentTarget.value
+      conditioner: JSON.parse(e.currentTarget.value)
       });
     var self=this;
     setTimeout(function(){
@@ -93,7 +93,7 @@ var SearchComponent = React.createClass({
   },
   onWifiChanged(e) {
     this.setState({
-      wifi: e.currentTarget.value
+      wifi: JSON.parse(e.currentTarget.value)
       });
     var self=this;
     setTimeout(function(){
@@ -102,7 +102,7 @@ var SearchComponent = React.createClass({
   },
   onEatChanged(e) {
     this.setState({
-      eat: e.currentTarget.value
+      eat: JSON.parse(e.currentTarget.value)
       });
     var self=this;
     setTimeout(function(){
@@ -111,7 +111,7 @@ var SearchComponent = React.createClass({
   },
   onChildrenChanged(e) {
     this.setState({
-      children: e.currentTarget.value
+      children: JSON.parse(e.currentTarget.value)
       });
     var self=this;
     setTimeout(function(){
@@ -120,7 +120,7 @@ var SearchComponent = React.createClass({
   },
   onParkingChanged(e) {
     this.setState({
-      children: e.currentTarget.value
+      children: JSON.parse(e.currentTarget.value)
       });
     var self=this;
     setTimeout(function(){
@@ -129,7 +129,7 @@ var SearchComponent = React.createClass({
   },
   onSwimingChanged(e) {
     this.setState({
-      children: e.currentTarget.value
+      children: JSON.parse(e.currentTarget.value)
       });
     var self=this;
     setTimeout(function(){
@@ -165,110 +165,110 @@ var SearchComponent = React.createClass({
 	 							</label>
                            </td>
 	                        <td>
-	                        	<div className={result.toilet ? 'show' : 'hide'}>
+	                        	<div className={typeof result.toilet === 'boolean' ? 'show' : 'hide'}>
 		                       	    <label className={params.toilet == result.toilet? 'btn btn-default active' : 'btn btn-default'}>
 	                        		<input type="radio" name="toilet" 
 		                                   value={result.toilet}  
 		                                   checked={params.toilet == result.toilet} 
 		                                   className={params.toilet == result.toilet? 'hide' : 'hide' }
 		                                   onChange={this.onToiletChanged} />
-										<span><i className={result.toilet=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+										<span><i className={result.toilet==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
    	                        <td>
-   	                        	<div className={result.tv ? 'show' : 'hide'}>
+   	                        	<div className={typeof result.tv === 'boolean' ? 'show' : 'hide'}>
 	   	                        	<label className={params.tv == result.tv? 'btn btn-default active' : 'btn btn-default' }>
 	                        		<input type="radio" name="tv" 
 		                                   value={result.tv}  
 		                                   checked={params.tv == result.tv} 
 		                                   className={result.tv ? 'hide' : 'hide' }
 		                                   onChange={this.onTvChanged} />
-										<span><i className={result.tv=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+										<span><i className={result.tv==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
    	                        <td>
-   	                        	<div className={result.refrigeter ? 'show' : 'hide'}>
+   	                        	<div className={typeof result.refrigeter === 'boolean' ? 'show' : 'hide'}>
 	  								<label className={params.refrigeter == result.refrigeter? 'btn btn-default active' : 'btn btn-default' }>
 	                        		<input type="radio" name="refrigeter" 
 		                                   value={result.refrigeter}  
 		                                   checked={params.refrigeter == result.refrigeter} 
 		                                   className={result.refrigeter ? 'hide' : 'hide' }
 		                                   onChange={this.onRefrigeterChanged} />
-										<span><i className={result.refrigeter=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+										<span><i className={result.refrigeter==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
    	                        <td>
-   	                        	<div className={result.conditioner ? 'show' : 'hide'}>
+   	                        	<div className={typeof result.conditioner === 'boolean' ? 'show' : 'hide'}>
 									<label className={params.conditioner == result.conditioner? 'btn btn-default active' : 'btn btn-default' }>
 	   	                        	<input type="radio" name="conditioner" 
 		                                   value={result.conditioner}  
 		                                   checked={params.conditioner == result.conditioner} 
 		                                   className={result.conditioner ? 'hide' : 'hide' }
 		                                   onChange={this.onConditionerChanged} />
-										<span><i className={result.conditioner=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+										<span><i className={result.conditioner==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
    	                        <td>
-   	                       	 	<div className={result.wifi ? 'show' : 'hide'}>
+   	                       	 	<div className={typeof result.wifi === 'boolean' ? 'show' : 'hide'}>
 	 								<label className={params.wifi == result.wifi? 'btn btn-default active' : 'btn btn-default' }>
 	   	                        	<input type="radio" name="wifi" 
 		                                   value={result.wifi}  
 		                                   checked={params.wifi == result.wifi} 
 		                                   className={result.wifi ? 'hide' : 'hide' }
 		                                   onChange={this.onWifiChanged} />
-										<span><i className={result.wifi=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+										<span><i className={result.wifi==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
    	                        <td>
-   	                        	<div className={result.eat ? 'show' : 'hide'}>
+   	                        	<div className={typeof result.eat === 'boolean' ? 'show' : 'hide'}>
 	   	                        	<label className={params.eat == result.eat? 'btn btn-default active' : 'btn btn-default' }>
 	   	                        	<input type="radio" name="eat" 
 		                                   value={result.eat}  
 		                                   checked={params.eat == result.eat} 
 		                                   className={result.eat ? 'hide' : 'hide' }
 		                                   onChange={this.onEatChanged} />
-										<span><i className={result.eat=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+										<span><i className={result.eat==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
   	                        <td>
-  	                       		<div className={result.children ? 'show' : 'hide'}>
+  	                       		<div className={typeof result.children === 'boolean' ? 'show' : 'hide'}>
 	  	                        	<label className={params.children == result.children? 'btn btn-default active' : 'btn btn-default' }>
 	  	                        	<input type="radio" name="children" 
 		                                   value={result.children}  
 		                                   checked={params.children == result.children} 
 		                                   className={result.children ? 'hide' : 'hide' }
 		                                   onChange={this.onChildrenChanged} />
-										<span><i className={result.children=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+										<span><i className={result.children==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
                             <td>
-  	                       		<div className={result.swiming ? 'show' : 'hide'}>
+  	                       		<div className={typeof result.swiming === 'boolean' ? 'show' : 'hide'}>
 	  	                        	<label className={params.swiming == result.swiming? 'btn btn-default active' : 'btn btn-default' }>
 	  	                        	<input type="radio" name="swiming"
 		                                   value={result.swiming}
 		                                   checked={params.swiming == result.swiming}
 		                                   className={result.swiming ? 'hide' : 'hide' }
 		                                   onChange={this.onSwimingChanged} />
-										<span><i className={result.swiming=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+										<span><i className={result.swiming==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>
                             <td>
-  	                       		<div className={result.parking ? 'show' : 'hide'}>
+  	                       		<div className={typeof result.parking === 'boolean' ? 'show' : 'hide'}>
 	  	                        	<label className={params.parking == result.parking? 'btn btn-default active' : 'btn btn-default' }>
 	  	                        	<input type="radio" name="parking"
 		                                   value={result.parking}
 		                                   checked={params.parking == result.parking}
 		                                   className={result.parking ? 'hide' : 'hide' }
 		                                   onChange={this.onParkingChanged} />
-										<span><i className={result.parking=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+										<span><i className={result.parking==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
 		 							</label>
 	 							</div>
                            </td>

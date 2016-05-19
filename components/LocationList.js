@@ -24,9 +24,7 @@ var LocationList = React.createClass({
                 }
             })
             .filter(function(data){
-                if(props.filter!='' && data.toilet){
-                    return data.toilet.toLowerCase().indexOf(props.filter.toilet.toLowerCase()) > -1;
-                }
+                    return (data.toilet==props.filter.toilet || props.filter.toilet=='') ? true : false
             })
             .filter(function(data){
                 if(props.filter!='' && data.distance){
@@ -34,44 +32,30 @@ var LocationList = React.createClass({
                 }
             })
             .filter(function(data){
-                if(props.filter!='' && data.tv){
-                    return data.tv.toLowerCase().indexOf(props.filter.tv.toLowerCase()) > -1;
-                }
+                    return (data.tv==props.filter.tv || props.filter.tv=='') ? true : false
             })
             .filter(function(data){
-                if(props.filter!='' && data.refrigeter){
-                    return data.refrigeter.toLowerCase().indexOf(props.filter.refrigeter.toLowerCase()) > -1;
-                }
+                    return (data.refrigeter==props.filter.refrigeter || props.filter.refrigeter=='') ? true : false
             })
             .filter(function(data){
-                if(props.filter!='' && data.conditioner){
-                    return data.conditioner.toLowerCase().indexOf(props.filter.conditioner.toLowerCase()) > -1;
-                }
+                    return (data.conditioner==props.filter.conditioner || props.filter.conditioner=='') ? true : false
             })
             .filter(function(data){
-                if(props.filter!='' && data.wifi){
-                    return data.wifi.toLowerCase().indexOf(props.filter.wifi.toLowerCase()) > -1;
-                }
+                    return (data.wifi==props.filter.wifi || props.filter.wifi=='') ? true : false
             })
             .filter(function(data){
-                if(props.filter!='' && data.eat){
-                    return data.eat.toLowerCase().indexOf(props.filter.eat.toLowerCase()) > -1;
-                }
+                    return (data.eat==props.filter.eat || props.filter.eat=='') ? true : false
             })
             .filter(function(data){
-                if(props.filter!='' && data.swiming){
-                    return data.swiming.toLowerCase().indexOf(props.filter.swiming.toLowerCase()) > -1;
-                }
+                    return (data.swiming==props.filter.swiming || props.filter.swiming=='') ? true : false
             })
             .filter(function(data){
-                if(props.filter!='' && data.parking){
-                    return data.parking.toLowerCase().indexOf(props.filter.parking.toLowerCase()) > -1;
-                }
+                    return (data.parking==props.filter.parking || props.filter.parking=='') ? true : false
             })
             .map(function(l){
                 num++;
 			var active = self.props.activeLocationAddress == l.address;
-			
+
 			return <LocationItem data={l} timestamp={l.timestamp}
 					active={active} onClick={self.props.onClick} />
 		});

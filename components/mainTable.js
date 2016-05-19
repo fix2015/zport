@@ -4,6 +4,7 @@
 
 var React = require('react');
 var FotoFolder = require('./FotoFolder');
+var config = require('./config');
 
 var PriceTable = React.createClass({
     getInitialState() {
@@ -13,13 +14,13 @@ var PriceTable = React.createClass({
                 title: '',
                 fotoFolder:'',
                 properties:{
-                    "conditioner": "true",
-                    "dush": "true",
-                    "toilet": "true",
-                    "tv": "true",
-                    "wifi": "true",
-                    "refrigeter": "true",
-                    "swiming": "true"
+                    "conditioner": true,
+                    "dush": true,
+                    "toilet": true,
+                    "tv": true,
+                    "wifi": true,
+                    "refrigeter": true,
+                    "swiming": true
                 }};
     },
     componentDidMount() {
@@ -51,7 +52,7 @@ var PriceTable = React.createClass({
     },
     getImgFromFolder(folder,subfolder){
         var self=this,
-            url = 'http://localhost:8081/foto/'+folder+'/'+subfolder;
+            url = config.domain + 'foto/'+folder+'/'+subfolder;
         $.ajax({
             url: url,
             dataType: 'json',

@@ -10,130 +10,25 @@ restaurants = require('../restaurants');
 var helper = require('./helper');
 var MainNav = require('./MainNav');
 gmarkers = [];
-
+//restaurants = '';
 
 var filterData = helper.filterData;
 
+var url = 'http://localhost:8080/zport/getjson';
+console.log(ReactDOM)
+$.ajax({
+    type: "POST",
+    url: url,
+    dataType: "json",
+    data: '',
+    success: function (obj) {
+        console.log( restaurants)
+        console.log( obj)
+        restaurants =  obj
+    }
+});
 
-//console.log('restaurants');
-//console.log(restaurants);
-//console.log(restaurants.length);
-/*var pans=[]
-for(var i=0; i<restaurants.length; i++){
-    pans.push({
-        'id' : restaurants[i].id,
-        'title' : restaurants[i].title,
-        'type' : (restaurants[i].type ? restaurants[i].type : "chast" ),
-        'folder' : "irina",
-        'children' : "true",
-        'conditioner' : "true",
-        'distance' : "true",
-        'dush' : "true",
-        'eat' : "true",
-        'toilet' : "true",
-        'tv' :"true",
-        'wifi' : "true",
-        'refrigeter' :"true",
-        'swiming' : "true",
-        'room':[{
-                'title' : "2-х местный номер эконом",
-                'folder-img' : "twoekonom",
-                'conditioner' : "true",
-                'dush' : "true",
-                'toilet' : "true",
-                'tv' :"true",
-                'wifi' : "true",
-                'refrigeter' :"true",
-                'swiming' : "true",
-                'price' : [{[0]:'май',[1]:'50'},
-                        {[0]:'июнь',[1]:'50'},
-                        {[0]:'июль',[1]:'50'},
-                        {[0]:'август',[1]:'50'},
-                        {[0]:'сентябрь',[1]:'50'},
-                        {[0]:'октябрь',[1]:'50'}]
-                },{
-                    'title' : "3-х местный номер эконом",
-                    'folder-img' : "twoekonom",
-                    'conditioner' : "true",
-                    'dush' : "true",
-                    'toilet' : "true",
-                    'tv' :"true",
-                    'wifi' : "true",
-                    'refrigeter' :"true",
-                    'swiming' : "true",
-                    'price' : [{[0]:'май',[1]:'50'},
-                        {[0]:'июнь',[1]:'50'},
-                        {[0]:'июль',[1]:'50'},
-                        {[0]:'август',[1]:'50'},
-                        {[0]:'сентябрь',[1]:'50'},
-                        {[0]:'октябрь',[1]:'50'}]
-                }
-        ],
-            'lat' : restaurants[i].lat,
-            'lng' : restaurants[i].lng
-    });
-}
-console.log(JSON.stringify(pans))*/
-/* pans[i].id = restaurants[i].id
-    pans[i].title = restaurants[i].title
-    pans[i].type = restaurants[i].type
 
-    pans[i].children = true
-    pans[i].conditioner = true
-    pans[i].distance = true
-    pans[i].dush = true
-    pans[i].eat = true
-    pans[i].toilet = true
-    pans[i].tv = true
-    pans[i].wifi = true
-    pans[i].refrigeter = true
-    pans[i].swiming = true
-    pans[i].price = [
-        [    {[0]:'май',[1]:'50'},
-            {[0]:'июнь',[1]:'50'},
-            {[0]:'июль',[1]:'50'},
-            {[0]:'август',[1]:'50'},
-            {[0]:'сентябрь',[1]:'50'},
-            {[0]:'октябрь',[1]:'50'}
-            ],
-            [    {[0]:'май',[1]:'50'},
-            {[0]:'июнь',[1]:'50'},
-            {[0]:'июль',[1]:'50'},
-            {[0]:'август',[1]:'50'},
-            {[0]:'сентябрь',[1]:'50'},
-            {[0]:'октябрь',[1]:'50'}
-            ],
-            [    {[0]:'май',[1]:'50'},
-            {[0]:'июнь',[1]:'50'},
-            {[0]:'июль',[1]:'50'},
-            {[0]:'август',[1]:'50'},
-            {[0]:'сентябрь',[1]:'50'},
-            {[0]:'октябрь',[1]:'50'}
-            ]
-        ]
-    pans[i].foto = {2: [
-    'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
-    'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300'
-    ],
-        3: [
-        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
-        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
-        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300'
-    ],
-        4: [
-        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
-        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
-        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
-        'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300'
-    ]}
-    pans[i].lat = restaurants[i].lat
-    pans[i].lng = restaurants[i].lng*//*
-
-}
-
-console.log(JSON.stringify(pans));
-
-*/
 
 
 
@@ -339,6 +234,131 @@ var App = React.createClass({
 });
 
 module.exports = App;
+
+
+
+
+//console.log('restaurants');
+//console.log(restaurants);
+//console.log(restaurants.length);
+/*var pans=[]
+ for(var i=0; i<restaurants.length; i++){
+ pans.push({
+ 'id' : restaurants[i].id,
+ 'title' : restaurants[i].title,
+ 'type' : (restaurants[i].type ? restaurants[i].type : "chast" ),
+ 'folder' : "irina",
+ 'children' : "true",
+ 'conditioner' : "true",
+ 'distance' : "true",
+ 'dush' : "true",
+ 'eat' : "true",
+ 'toilet' : "true",
+ 'tv' :"true",
+ 'wifi' : "true",
+ 'refrigeter' :"true",
+ 'swiming' : "true",
+ 'room':[{
+ 'title' : "2-х местный номер эконом",
+ 'folder-img' : "twoekonom",
+ 'conditioner' : "true",
+ 'dush' : "true",
+ 'toilet' : "true",
+ 'tv' :"true",
+ 'wifi' : "true",
+ 'refrigeter' :"true",
+ 'swiming' : "true",
+ 'price' : [{[0]:'май',[1]:'50'},
+ {[0]:'июнь',[1]:'50'},
+ {[0]:'июль',[1]:'50'},
+ {[0]:'август',[1]:'50'},
+ {[0]:'сентябрь',[1]:'50'},
+ {[0]:'октябрь',[1]:'50'}]
+ },{
+ 'title' : "3-х местный номер эконом",
+ 'folder-img' : "twoekonom",
+ 'conditioner' : "true",
+ 'dush' : "true",
+ 'toilet' : "true",
+ 'tv' :"true",
+ 'wifi' : "true",
+ 'refrigeter' :"true",
+ 'swiming' : "true",
+ 'price' : [{[0]:'май',[1]:'50'},
+ {[0]:'июнь',[1]:'50'},
+ {[0]:'июль',[1]:'50'},
+ {[0]:'август',[1]:'50'},
+ {[0]:'сентябрь',[1]:'50'},
+ {[0]:'октябрь',[1]:'50'}]
+ }
+ ],
+ 'lat' : restaurants[i].lat,
+ 'lng' : restaurants[i].lng
+ });
+ }
+ console.log(JSON.stringify(pans))*/
+/* pans[i].id = restaurants[i].id
+ pans[i].title = restaurants[i].title
+ pans[i].type = restaurants[i].type
+
+ pans[i].children = true
+ pans[i].conditioner = true
+ pans[i].distance = true
+ pans[i].dush = true
+ pans[i].eat = true
+ pans[i].toilet = true
+ pans[i].tv = true
+ pans[i].wifi = true
+ pans[i].refrigeter = true
+ pans[i].swiming = true
+ pans[i].price = [
+ [    {[0]:'май',[1]:'50'},
+ {[0]:'июнь',[1]:'50'},
+ {[0]:'июль',[1]:'50'},
+ {[0]:'август',[1]:'50'},
+ {[0]:'сентябрь',[1]:'50'},
+ {[0]:'октябрь',[1]:'50'}
+ ],
+ [    {[0]:'май',[1]:'50'},
+ {[0]:'июнь',[1]:'50'},
+ {[0]:'июль',[1]:'50'},
+ {[0]:'август',[1]:'50'},
+ {[0]:'сентябрь',[1]:'50'},
+ {[0]:'октябрь',[1]:'50'}
+ ],
+ [    {[0]:'май',[1]:'50'},
+ {[0]:'июнь',[1]:'50'},
+ {[0]:'июль',[1]:'50'},
+ {[0]:'август',[1]:'50'},
+ {[0]:'сентябрь',[1]:'50'},
+ {[0]:'октябрь',[1]:'50'}
+ ]
+ ]
+ pans[i].foto = {2: [
+ 'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+ 'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300'
+ ],
+ 3: [
+ 'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+ 'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+ 'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300'
+ ],
+ 4: [
+ 'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+ 'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+ 'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300',
+ 'https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300'
+ ]}
+ pans[i].lat = restaurants[i].lat
+ pans[i].lng = restaurants[i].lng*//*
+
+ }
+
+ console.log(JSON.stringify(pans));
+
+ */
+
+
 /*
  <CurrentLocation address={this.state.currentAddress}
  favorite={this.isAddressInFavorites(this.state.currentAddress)}
