@@ -44,7 +44,7 @@ var App = React.createClass({
         };
 	},
     getDataDromDB(){
-        var url = 'http://localhost:8080/zport/getjson',
+        var url = 'http://104.131.48.201:8080/zport/getjson',
             self=this;
         $.ajax({
             type: "POST",
