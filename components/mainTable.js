@@ -41,8 +41,8 @@ var PriceTable = React.createClass({
             price: this.props.data.price
                 .map(function(data){
                     return  (<tr>
-                                <td>{data[0]}</td>
-                                <td>{data[1]}грн</td>
+                                <td>{data.mounth}</td>
+                                <td>{data.price}грн</td>
                             </tr>
                             )
                 })
