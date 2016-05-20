@@ -13,31 +13,13 @@ gmarkers = [];
 //restaurants = '';
 
 var filterData = helper.filterData;
-
-var url = 'http://localhost:8080/zport/getjson';
-console.log(ReactDOM)
-$.ajax({
-    type: "POST",
-    url: url,
-    dataType: "json",
-    data: '',
-    success: function (obj) {
-        console.log( restaurants)
-        console.log( obj)
-        restaurants =  obj
-    }
-});
-
-
-
-
-
 var App = React.createClass({
 
 	getInitialState(){
         var type = (this.props.params.type ? this.props.params.type : '');
 		var favorites = [];
         favorites = restaurants;
+        this.getDataDromDB();
 		return {
 			favorites: favorites,
 			currentAddress: 'Zport',
@@ -61,6 +43,21 @@ var App = React.createClass({
             }
         };
 	},
+    getDataDromDB(){
+        var url = 'http://localhost:8080/zport/getjson',
+            self=this;
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            data: '',
+            success: function (obj) {
+                self.setState({
+                    favorites:  obj
+                })
+            }
+        })
+    },
 	toggleFavorite(address){
 
 		if(this.isAddressInFavorites(address)){
@@ -198,6 +195,22 @@ var App = React.createClass({
 
     },
 	render(){
+/*    var url = 'http://localhost:8080/zport/getjson';
+    var self=this;
+    $.ajax({
+        type: "POST",
+        url: url,
+        dataType: "json",
+        data: '',
+        success: function (obj) {
+            self.setState({
+                favorites:  obj
+            })
+        }
+    });*/
+
+
+
     var routeType = this.props.params.type;
     return (
 			<div>

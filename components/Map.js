@@ -3,15 +3,9 @@ var helper = require('./helper');
 
 var Map = React.createClass({
 	componentDidMount(){
-       
-		// Only componentDidMount is called when the component is first added to
-		// the page. This is why we are calling the following method manually. 
-		// This makes sure that our map initialization code is run the first time.
-
 		this.componentDidUpdate();
 	},
     infoWindow(data){
-    //console.log(data)
         return '<div class="col-md-12 map-list-preview" style="text-align: left">'+
             '<h4>'+data.title+'</h4>'+
             '<h4>'+helper.type(data.type)+'</h4>'+
@@ -44,16 +38,9 @@ var Map = React.createClass({
         '</div>'
     },
 	componentDidUpdate(){
-
 		if(this.lastLat == this.props.lat && this.lastLng == this.props.lng){
-
-			// The map has already been initialized at this address.
-			// Return from this method so that we don't reinitialize it
-			// (and cause it to flicker).
-
 			return;
 		}
-
         var map = new GMaps({
             el: '#map',
              lat: 46.12363029999999,
@@ -61,8 +48,6 @@ var Map = React.createClass({
         });
         map.removeMarkers();
         this.addMarkers(map, this.props)
-
-
 	},
     addMarkers(map, props){
         var self = this;
