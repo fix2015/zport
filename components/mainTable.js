@@ -47,11 +47,14 @@ var PriceTable = React.createClass({
                             )
                 })
         })
-    this.getImgFromFolder(this.props.fullData.folder,this.props.data.folderImg);
-    this.state.num++
+        this.getImgFromFolder(this.props.data);
+        this.state.num++
     },
-    getImgFromFolder(folder,subfolder){
-        var self=this,
+    getImgFromFolder(images){
+        this.setState({
+            fotoFolder: images
+        })
+/*        var self=this,
             url = config.domain + 'foto/'+folder+'/'+subfolder;
         $.ajax({
             url: url,
@@ -65,7 +68,7 @@ var PriceTable = React.createClass({
             error: function(xhr, status, err) {
                 console.error(this.props.url, status, err.toString());
             }.bind(this)
-        });
+        });*/
     },
     handleClick(event){
         this.props.onChangeData(event);

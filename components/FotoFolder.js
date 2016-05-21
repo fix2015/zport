@@ -16,11 +16,12 @@ var FotoFolder = React.createClass({
     },
     render() {
         var html = '',
-            fotos = '';
+            fotos = '',
+            roomId = this.props.data.id;
             if(this.props.data!=''){
-                fotos = this.props.data
+                fotos = this.props.data.image
                 .map(function(data){
-                    return <div className='col-md-3 price-table-block-img'><img className='img-rounded' src={config.domain + data}/></div>
+                    return <div className='col-md-3 price-table-block-img'><img className='img-rounded' src={config.domain + 'images/room/'+ roomId + '/' + data.name}/></div>
                 })
             }
             return (
