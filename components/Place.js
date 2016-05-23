@@ -89,7 +89,7 @@ render() {
             </div>
             <div className="location-block col-md-12">
                 <div className="col-md-4">
-                    <div><img className="img-rounded" src={config.domain + 'image/' +this.state.place.folder + '/main/ico.jpg'} /></div>
+                    <div><img className="img-rounded" src={config.domain + 'images/zport/'+ this.state.place.id + '/ico.jpg'} /></div>
                 </div>
                 <div className="col-md-8">
                     <ul className="list-group">
