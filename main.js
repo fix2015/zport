@@ -8,6 +8,7 @@ var Router = require('react-router').Router;
 var hashHistory = require('react-router').hashHistory;
 var Route = require('react-router').Route;
 var Link = require('react-router').Link
+var Guides = require('./components/guides/guides');
 
 ReactDOM.render(
     <Router history={hashHistory} >
@@ -16,6 +17,9 @@ ReactDOM.render(
         </Route>
         <Route path="place"  name="Place" component={Place}>
             <Route path="/place/:placeId" component={Place}/>
+        </Route>
+        <Route path="guides"  name="Guides" component={Guides}>
+            <Route path="/guides/:placeName" component={Guides}/>
         </Route>
     </Router>
     ,
