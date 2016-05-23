@@ -3,6 +3,6 @@
  */
 var data={}
 
-data.domain = 'http://localhost:8083/'
+data.domain = 'http://http://104.131.48.201:8083/'
 
 module.exports = data;
