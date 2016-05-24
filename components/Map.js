@@ -7,9 +7,11 @@ var Map = React.createClass({
 	},
     infoWindow(data){
         return '<div class="col-md-12 map-list-preview" style="text-align: left">'+
-            '<h4>'+data.title+'</h4>'+
-            '<h4>'+helper.type(data.type)+'</h4>'+
+            '<h4><a href="#/place/'+data.id+'">'+data.title+'</a></h4>'+
             '<ul class="list-group" style="padding: 0; margin-top: 0px;">'+
+            '<li class="list-group-item">'+
+            '<i class="glyphicon glyphicon-star"></i> Тип: '+helper.type(data.type)+
+            '</li>'+
             '<li class="list-group-item">'+
             '<i class="glyphicon glyphicon-send"></i> Дистанция: '+data.distance+
             '</li>'+
