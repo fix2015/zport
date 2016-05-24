@@ -7,9 +7,11 @@ var Map = React.createClass({
 	},
     infoWindow(data){
         return '<div class="col-md-12 map-list-preview" style="text-align: left">'+
-            '<h4>'+data.title+'</h4>'+
-            '<h4>'+helper.type(data.type)+'</h4>'+
+            '<h4><a href="#/place/'+data.id+'">'+data.title+'</a></h4>'+
             '<ul class="list-group" style="padding: 0; margin-top: 0px;">'+
+            '<li class="list-group-item">'+
+            '<i class="glyphicon glyphicon-star"></i> Тип: '+helper.type(data.type)+
+            '</li>'+
             '<li class="list-group-item">'+
             '<i class="glyphicon glyphicon-send"></i> Дистанция: '+data.distance+
             '</li>'+
@@ -44,10 +46,17 @@ var Map = React.createClass({
         var map = new GMaps({
             el: '#map',
              lat: 46.12363029999999,
-             lng: 32.29127140000003
+             lng: 32.29127140000003,
+            markerClusterer: function(map) {
+                options = {
+                    gridSize: 40
+                }
+
+                return new MarkerClusterer(map, [], options);
+            }
         });
         map.removeMarkers();
-        this.addMarkers(map, this.props)
+    this.addMarkers(map, this.props)
 	},
     addMarkers(map, props){
         var self = this;
@@ -102,8 +111,9 @@ var Map = React.createClass({
                     }
                 }).setIcon("images/green-icon.png");
                 gmarkers.push(marker);
-        })
 
+        })
+    new MarkerClusterer(map, gmarkers);
     },
 	render(){
 		return (
