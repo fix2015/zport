@@ -20,13 +20,13 @@ var Steps = React.createClass({
         if(typeof this.props.step.steps != 'undefined'){
             steps = this.props.step.steps
                 .map(function(data){
-                    return <div className='col-md-12'><span>{data.instructions}</span> {data.distance.text}</div>
+                    return <li className='list-group-item'><span className="badge">{data.distance.text}</span><div dangerouslySetInnerHTML={{__html: data.instructions}}></div></li>
                 })
         }
         return (
-            <div>
+            <ul className="list-group">
                 {steps}
-            </div>
+            </ul>
             );
     }
 });

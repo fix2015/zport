@@ -212,3 +212,8 @@ a.list-group-item span.createdAt {
 .place-title{
     padding-bottom: 10px;
 }
+#floating-panel{
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+ }

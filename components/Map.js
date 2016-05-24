@@ -44,10 +44,17 @@ var Map = React.createClass({
         var map = new GMaps({
             el: '#map',
              lat: 46.12363029999999,
-             lng: 32.29127140000003
+             lng: 32.29127140000003,
+            markerClusterer: function(map) {
+                options = {
+                    gridSize: 40
+                }
+
+                return new MarkerClusterer(map, [], options);
+            }
         });
         map.removeMarkers();
-        this.addMarkers(map, this.props)
+    this.addMarkers(map, this.props)
 	},
     addMarkers(map, props){
         var self = this;
@@ -102,8 +109,9 @@ var Map = React.createClass({
                     }
                 }).setIcon("images/green-icon.png");
                 gmarkers.push(marker);
-        })
 
+        })
+    new MarkerClusterer(map, gmarkers);
     },
 	render(){
 		return (
