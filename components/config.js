@@ -3,6 +3,6 @@
  */
 var data={}
 
-data.domain = 'http://104.131.48.201:8083/'
+data.domain = 'http://zport-search.tk/'
 
 module.exports = data;
