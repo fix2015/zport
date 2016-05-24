@@ -9,14 +9,16 @@ var directionsDisplay = new google.maps.DirectionsRenderer;
 var Steps = require('./steps');
 var MainNav = require('../MainNav');
 var Link = require('react-router').Link;
-
+var helper = require('../helper');
+var endPoint = helper.endPoint
 var FotoFolder = React.createClass({
     getInitialState(){
         return {
             fulldata: {},
             legs: {},
             url: '',
-            description: ''
+            description: '',
+            endPoint:endPoint
         }
     },
     initMap() {
@@ -41,8 +43,6 @@ var FotoFolder = React.createClass({
             destination: end,
             travelMode: google.maps.TravelMode.WALKING
         }, function(response, status) {
-            console.log(response)
-            console.log(status)
             if (status === google.maps.DirectionsStatus.OK) {
                 self.setState({
                     legs : response.routes[0].legs[0],
@@ -56,20 +56,7 @@ var FotoFolder = React.createClass({
         });
     },
     calcRoute(event){
-        var end = [
-            {
-                name: "stambul",
-                lng: 32.29299187660217,
-                lat: 46.1172700513178
-            },
-            {
-                name: "briz",
-                lng: 32.291562259197235,
-                lat: 46.11757125158769,
-                url: 'http://nikcenter.org/images/photo/images/briz.jpg',
-                description: 'Рынок это супер рынов желзеном порту'
-            }
-        ]
+        var end = this.state.endPoint;
         for(var i=0; i<end.length; i++){
             if(end[i].name == event.target.value){
                 this.calculateAndDisplayRoute(end[i]);
@@ -77,7 +64,7 @@ var FotoFolder = React.createClass({
         }
     },
     componentDidMount(){
-        var self = this
+        var self = this;
         locations = restaurants
             .filter(function(data){
                 if(data.id){
@@ -90,15 +77,16 @@ var FotoFolder = React.createClass({
                 })
             })
             setTimeout(function(){
-                var event = { target: {
-                    value: 'stambul'
-                }}
-                self.calcRoute(event)
+                self.calcRoute({target: {value: 'stambul'}})
             },200)
     },
 
     render() {
-        this.initMap()
+        this.initMap();
+        var end = this.state.endPoint
+            .map(function(data){
+                return   <option value={data.name}>{data.label}</option>
+            })
         return (
             <div>
                 <div className="col-md-12">
@@ -112,8 +100,7 @@ var FotoFolder = React.createClass({
                         </select>
                         <b>Конечная точка: </b>
                         <select id="end" onChange={this.calcRoute}>
-                            <option value="stambul">Стамбул</option>
-                            <option value="briz">Бриз</option>
+                            {end}
                         </select>
                     </div>
                 </div>
@@ -125,7 +112,7 @@ var FotoFolder = React.createClass({
                     <hr/>
                 </div>
                 <div className="col-md-12">
-                    <div className="col-md-6"><img src={this.state.url}/></div>
+                    <div className="col-md-6"><img src={config.domain + 'site-images/'+ this.state.url}/></div>
                     <div className="col-md-6">{this.state.description}/</div>
                 </div>
             </div>

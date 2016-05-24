@@ -131,6 +131,9 @@ render() {
                         <li className="list-group-item">
                             <i className="glyphicon glyphicon-map-marker"></i> Адресс: <span> {this.state.place.address}</span>
                         </li>
+                        <li className="list-group-item">
+                            <i className="glyphicon glyphicon-hand-right"></i>   <Link to={'/guides/'+this.state.place.id}>Путеводитель для {this.state.place.title}</Link>
+                        </li>
                     </ul>
                 </div>
             </div>
