@@ -56,11 +56,14 @@ var Place = React.createClass({
                         }
                     })
                     .map(function(data){
-                        console.log(data)
                         var dataHouse = data;
                         self.setState({
                             place:dataHouse,
                             description:dataHouse.description,
+                            images:dataHouse.image
+                            .map(function(data){
+                                return <div className='col-md-3 price-table-block-img'><img className='img-rounded' src={config.domain + 'images/zport/'+ dataHouse.id + '/' + data.name}/></div>
+                            }),
                             mainTable : dataHouse.room
                             .map(function(data){
                                 num++;
@@ -136,6 +139,9 @@ render() {
             </div>
             <div className="col-md-12 location-block-description">
                  {this.state.description}
+            </div>
+            <div className="col-md-12 location-block-description">
+            {this.state.images}
             </div>
             {this.state.mainTable}
         </div>
