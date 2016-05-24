@@ -18,6 +18,7 @@ var FotoFolder = React.createClass({
             legs: {},
             url: '',
             description: '',
+            destination: '',
             endPoint:endPoint
         }
     },
@@ -47,7 +48,8 @@ var FotoFolder = React.createClass({
                 self.setState({
                     legs : response.routes[0].legs[0],
                     url : end.url,
-                    description :  end.description
+                    description :  end.description,
+                    destination : end
                 })
                 directionsDisplay.setDirections(response);
             } else {
@@ -87,10 +89,15 @@ var FotoFolder = React.createClass({
             .map(function(data){
                 return   <option value={data.name}>{data.label}</option>
             })
+        var distance = this.state.legs.distance ? this.state.legs.distance.value : ''
+        var put =  <h4>Дорога до - {distance}</h4>
         return (
             <div>
                 <div className="col-md-12">
                     <MainNav type="" typeFilter=""></MainNav>
+                </div>
+                <div className="col-md-12">
+                    <h3>Путеводитель для  -  <Link to={'/place/'+this.state.fulldata.id} className="location-title"> {this.state.fulldata.title}</Link> </h3>
                 </div>
                 <div className="col-md-12">
                     <div id="floating-panel">
@@ -105,7 +112,10 @@ var FotoFolder = React.createClass({
                     </div>
                 </div>
                 <div className="col-md-12">
-                    <div className="col-md-6"> <h3>Путеводитель для  -  <Link to={'/place/'+this.state.fulldata.id} className="location-title"> {this.state.fulldata.title}</Link> </h3><Steps step={this.state.legs}></Steps></div>
+                    <div className="col-md-6">
+                        <h4>{ this.state.destination ? this.state.destination.label : ''} находится на расстоянии -{ this.state.legs.distance ? this.state.legs.distance.value : ''} м от {this.state.fulldata.title}</h4>
+                        <Steps step={this.state.legs}></Steps>
+                    </div>
                     <div className="col-md-6" id="map"></div>
                 </div>
                 <div className="col-md-12">
