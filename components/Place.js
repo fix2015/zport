@@ -107,7 +107,6 @@ render() {
                         <li className="list-group-item">
                             <i className="glyphicon glyphicon-shopping-cart"></i> Удобства: <i className={this.state.place.toilet==true ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i>
                         </li>
-                    {this.state.place.dush.toString()}{this.state.place.dush==true ? 'ok' : 'no'}
                         <li className="list-group-item">
                             <i className="glyphicon glyphicon-equalizer"></i> Душ: <i className={this.state.place.dush==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                         </li>
