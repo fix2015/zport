@@ -51,25 +51,25 @@ var LocationItem = React.createClass({
                                     <i className="glyphicon glyphicon-send"></i> Дистанция: {this.props.data.distance} / 5
                                 </li>
                                 <li className="list-group-item">
-                                    <i className="glyphicon glyphicon-shopping-cart"></i> Удобства: <i className={this.props.data.toilet=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                                    <i className="glyphicon glyphicon-shopping-cart"></i> Удобства: <i className={this.props.data.toilet==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                                 </li>
                                 <li className="list-group-item">
-                                    <i className="glyphicon glyphicon-equalizer"></i> Душ:  <i className={this.props.data.dush=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                                    <i className="glyphicon glyphicon-equalizer"></i> Душ:  <i className={this.props.data.dush==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                                 </li>
                                 <li className="list-group-item">
-                                    <i className="glyphicon glyphicon-expand"></i> TV:  <i className={this.props.data.tv=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                                    <i className="glyphicon glyphicon-expand"></i> TV:  <i className={this.props.data.tv==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                                 </li>
                                 <li className="list-group-item">
-                                    <i className="glyphicon glyphicon-folder-close"></i> Холодильник: <i className={this.props.data.refrigeter=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                                    <i className="glyphicon glyphicon-folder-close"></i> Холодильник: <i className={this.props.data.refrigeter==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                                 </li>
                                 <li className="list-group-item">
-                                    <i className="glyphicon glyphicon-globe"></i> Кондиционер: <i className={this.props.data.conditioner=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                                    <i className="glyphicon glyphicon-globe"></i> Кондиционер: <i className={this.props.data.conditioner==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                                 </li>
                                 <li className="list-group-item">
-                                    <i className="glyphicon glyphicon-cd"></i> Wifi:  <i className={this.props.data.wifi=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                                    <i className="glyphicon glyphicon-cd"></i> Wifi:  <i className={this.props.data.wifi==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                                 </li>
                                 <li className="list-group-item">
-                                    <i className="glyphicon glyphicon-apple"></i> Питание:   <i className={this.props.data.eat=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                                    <i className="glyphicon glyphicon-apple"></i> Питание:   <i className={this.props.data.eat==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                                 </li>
                             </ul>
                             <span className="glyphicon glyphicon-zoom-in"></span>

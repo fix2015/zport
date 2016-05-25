@@ -48,12 +48,13 @@ data.filterData =[
     {type: 'children', distance: '900'}
 
 ];
+
 data.endPoint = [
     {
         name: "stambul",
         label: "Стамбул",
-        lng: 32.29299187660217,
-        lat: 46.1172700513178,
+        lng: 32.30107605457306,
+        lat: 46.11552045423066,
         url: 'stambul.jpeg',
         description: 'Рынок это супер рынов желзеном порту'
     },

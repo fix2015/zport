@@ -16,25 +16,25 @@ var Map = React.createClass({
             '<i class="glyphicon glyphicon-send"></i> Дистанция: '+data.distance+
             '</li>'+
             '<li class="list-group-item">'+
-            '<i class="glyphicon glyphicon-shopping-cart"></i> Удобства: <i class="'+ (data.toilet=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
+            '<i class="glyphicon glyphicon-shopping-cart"></i> Удобства: <i class="'+ (data.toilet==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
             '</li>'+
             '<li class="list-group-item">'+
-            '<i class="glyphicon glyphicon-equalizer"></i> Душ: <i class="'+ (data.dush=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
+            '<i class="glyphicon glyphicon-equalizer"></i> Душ: <i class="'+ (data.dush==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
             '</li>'+
             '<li class="list-group-item">'+
-            '<i class="glyphicon glyphicon-expand"></i> TV: <i class="'+ (data.tv=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
+            '<i class="glyphicon glyphicon-expand"></i> TV: <i class="'+ (data.tv==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
             '</li>'+
             '<li class="list-group-item">'+
-            '<i class="glyphicon glyphicon-folder-close"></i> Холодильник: <i class="'+ (data.refrigeter=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
+            '<i class="glyphicon glyphicon-folder-close"></i> Холодильник: <i class="'+ (data.refrigeter==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
             '</li>'+
             '<li class="list-group-item">'+
-            '<i class="glyphicon glyphicon-globe"></i> Кондиционер: <i class="'+ (data.conditioner=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
+            '<i class="glyphicon glyphicon-globe"></i> Кондиционер: <i class="'+ (data.conditioner==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
             '</li>'+
             '<li class="list-group-item">'+
-            '<i class="glyphicon glyphicon-cd"></i> Wifi: <i class="'+ (data.wifi=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
+            '<i class="glyphicon glyphicon-cd"></i> Wifi: <i class="'+ (data.wifi==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
             '</li>'+
             '<li class="list-group-item">'+
-            '<i class="glyphicon glyphicon-apple"></i> Питание:  <i class="'+ (data.eat=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
+            '<i class="glyphicon glyphicon-apple"></i> Питание:  <i class="'+ (data.eat==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove") +'"></i>'+
             '</li>'+
             '</ul>'+
         '</div>'

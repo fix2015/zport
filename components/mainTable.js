@@ -97,27 +97,27 @@ var PriceTable = React.createClass({
                             <tbody>
                                 <tr>
                                     <td><i className="glyphicon glyphicon-globe"></i> Кондиционер</td>
-                                    <td><i className={this.state.properties.conditioner=="true" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
+                                    <td><i className={this.state.properties.conditioner==true ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
                                 </tr>
                                 <tr>
                                     <td><i className="glyphicon glyphicon-equalizer"></i> Душ в номере</td>
-                                    <td><i className={this.state.properties.dush=="true" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
+                                    <td><i className={this.state.properties.dush==true ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
                                 </tr>
                                 <tr>
                                     <td><i className="glyphicon glyphicon-shopping-cart"></i> Удобства в номере</td>
-                                    <td><i className={this.state.properties.toilet=="true" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
+                                    <td><i className={this.state.properties.toilet==true ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
                                 </tr>
                                 <tr>
                                     <td><i className="glyphicon glyphicon-folder-close"></i> Телевизор</td>
-                                    <td><i className={this.state.properties.tv=="true" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
+                                    <td><i className={this.state.properties.tv==true ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
                                 </tr>
                                 <tr>
                                     <td><i className="glyphicon glyphicon-cd"></i> WIFI</td>
-                                    <td><i className={this.state.properties.wifi=="true" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
+                                    <td><i className={this.state.properties.wifi==true ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
                                 </tr>
                                 <tr>
                                     <td><i className="glyphicon glyphicon-folder-close"></i> Холодильник</td>
-                                    <td><i className={this.state.properties.refrigeter=="true" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
+                                    <td><i className={this.state.properties.refrigeter==true ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i></td>
                                 </tr>
                             </tbody>
                         </table>

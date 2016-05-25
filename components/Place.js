@@ -105,28 +105,29 @@ render() {
                             <i className="glyphicon glyphicon-send"></i> Дистанция: {this.state.place.distance} м.
                         </li>
                         <li className="list-group-item">
-                            <i className="glyphicon glyphicon-shopping-cart"></i> Удобства: <i className={this.state.place.toilet=="true" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i>
+                            <i className="glyphicon glyphicon-shopping-cart"></i> Удобства: <i className={this.state.place.toilet==true ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}></i>
+                        </li>
+                    {this.state.place.dush.toString()}{this.state.place.dush==true ? 'ok' : 'no'}
+                        <li className="list-group-item">
+                            <i className="glyphicon glyphicon-equalizer"></i> Душ: <i className={this.state.place.dush==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                         </li>
                         <li className="list-group-item">
-                            <i className="glyphicon glyphicon-equalizer"></i> Душ: <i className={this.state.place.dush=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                            <i className="glyphicon glyphicon-expand"></i> TV: <i className={this.state.place.tv==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                         </li>
                         <li className="list-group-item">
-                            <i className="glyphicon glyphicon-expand"></i> TV: <i className={this.state.place.tv=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                            <i className="glyphicon glyphicon-folder-close"></i> Холодильник: <i className={this.state.place.refrigeter==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                         </li>
                         <li className="list-group-item">
-                            <i className="glyphicon glyphicon-folder-close"></i> Холодильник: <i className={this.state.place.refrigeter=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                            <i className="glyphicon glyphicon-cloud"></i> Басейн: <i className={this.state.place.swiming==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                         </li>
                         <li className="list-group-item">
-                            <i className="glyphicon glyphicon-cloud"></i> Басейн: <i className={this.state.place.swiming=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                            <i className="glyphicon glyphicon-cd"></i> Wifi: <i className={this.state.place.wifi==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                         </li>
                         <li className="list-group-item">
-                            <i className="glyphicon glyphicon-cd"></i> Wifi: <i className={this.state.place.wifi=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                            <i className="glyphicon glyphicon-apple"></i> Кухня:  <i className={this.state.place.eat==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                         </li>
                         <li className="list-group-item">
-                            <i className="glyphicon glyphicon-apple"></i> Кухня:  <i className={this.state.place.eat=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
-                        </li>
-                        <li className="list-group-item">
-                            <i className="glyphicon glyphicon-road"></i> Парковка:  <i className={this.state.place.eat=="true" ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                            <i className="glyphicon glyphicon-road"></i> Парковка:  <i className={this.state.place.eat==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                         </li>
                         <li className="list-group-item">
                             <i className="glyphicon glyphicon-phone-alt"></i> Контакты: <span> {this.state.place.phone}</span>
