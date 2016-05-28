@@ -129,9 +129,11 @@ var App = React.createClass({
 		return false;
 	},
 	filterFunc(data){
-		this.setState({
-            filter: data
-        })
+        if(data.type!='' || data.distance!='' || data.toilet!='' || data.tv!='' || data.refrigeter!='' || data.conditioner!='' || data.wifi!='' || data.eat!='' || data.children!='' || data.swiming!=''){
+            this.setState({
+                filter: data
+            })
+        }
 	},
 	searchForAddress(data){
 		var self = this;

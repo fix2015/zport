@@ -29,7 +29,20 @@ ReactDOM.render(
     ,
     document.getElementById('main')
 );
-/*console.log(ReactDOM)
+/*
+
+ <Route path="/:type/:distance/:toilet/:tv/:refrigeter/:conditioner/:wifi/:eat/:children/:swiming" component={App}/>
+ <Route path="/:type/:distance/:toilet/:tv/:refrigeter/:conditioner/:wifi/:eat/:children" component={App}/>
+ <Route path="/:type/:distance/:toilet/:tv/:refrigeter/:conditioner/:wifi/:eat" component={App}/>
+ <Route path="/:type/:distance/:toilet/:tv/:refrigeter/:conditioner/:wifi" component={App}/>
+ <Route path="/:type/:distance/:toilet/:tv/:refrigeter:/conditioner" component={App}/>
+ <Route path="/:type/:distance/:toilet/:tv/:refrigeter" component={App}/>
+ <Route path="/:type/:distance/:toilet/:tv" component={App}/>
+ <Route path="/:type/:distance/:toilet" component={App}/>
+ <Route path="/:type/:distance" component={App}/>
+
+
+console.log(ReactDOM)
 var MyComponent = React.createClass({
     render: function() {
         return <div>Hello World</div>;
