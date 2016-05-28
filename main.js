@@ -9,7 +9,7 @@ var hashHistory = require('react-router').hashHistory;
 var Route = require('react-router').Route;
 var Link = require('react-router').Link
 var Guides = require('./components/guides/guides');
-var Contacts = require('./components/contacts/contacts');
+var Contacts = require('./components/contacts/Contacts');
 
 ReactDOM.render(
     <Router history={hashHistory} >
