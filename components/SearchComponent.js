@@ -260,18 +260,6 @@ var SearchComponent = React.createClass({
 		 							</label>
 	 							</div>
                            </td>
-                            <td>
-  	                       		<div className={typeof result.parking === 'boolean' ? 'show' : 'hide'}>
-	  	                        	<label className={params.parking == result.parking? 'btn btn-default active' : 'btn btn-default' }>
-	  	                        	<input type="radio" name="parking"
-		                                   value={result.parking}
-		                                   checked={params.parking == result.parking}
-		                                   className={result.parking ? 'hide' : 'hide' }
-		                                   onChange={this.onParkingChanged} />
-										<span><i className={result.parking==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
-		 							</label>
-	 							</div>
-                           </td>
 	                    </tr>
                  </tbody>
                );
@@ -290,7 +278,6 @@ var SearchComponent = React.createClass({
                            <th className='filter-head'>Питания</th>
                            <th className='filter-head'>Детская площадка</th>
                            <th className='filter-head'>Бассейн</th>
-                           <th className='filter-head'>Парковка</th>
                        </tr>
                    </thead>
                     {resultRows}
@@ -315,3 +302,15 @@ module.exports = SearchComponent;
         <td>chosen children {this.state.children} </td>
     </tr>
 </tfoot>*/
+/*                            <td>
+ <div className={typeof result.parking === 'boolean' ? 'show' : 'hide'}>
+ <label className={params.parking == result.parking? 'btn btn-default active' : 'btn btn-default' }>
+ <input type="radio" name="parking"
+ value={result.parking}
+ checked={params.parking == result.parking}
+ className={result.parking ? 'hide' : 'hide' }
+ onChange={this.onParkingChanged} />
+ <span><i className={result.parking==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i></span>
+ </label>
+ </div>
+ </td>*/

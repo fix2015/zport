@@ -126,9 +126,6 @@ render() {
                             <i className="glyphicon glyphicon-apple"></i> Кухня:  <i className={this.state.place.eat==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                         </li>
                         <li className="list-group-item">
-                            <i className="glyphicon glyphicon-road"></i> Парковка:  <i className={this.state.place.eat==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
-                        </li>
-                        <li className="list-group-item">
                             <i className="glyphicon glyphicon-phone-alt"></i> Контакты: <span> {this.state.place.phone}</span>
                         </li>
                         <li className="list-group-item">
