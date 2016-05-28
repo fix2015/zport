@@ -29,20 +29,35 @@ var Place = React.createClass({
             }
         };
     },
+    socButton(){
+        (function() {
+            if (window.pluso)if (typeof window.pluso.start == "function") return;
+            if (window.ifpluso==undefined) { window.ifpluso = 1;
+                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                var h=d[g]('body')[0];
+                h.appendChild(s);
+            }})();
+    },
+    checkImg(){
+        var profileImg = new Image(),
+            self = this;
+            profileImg.onload = function(){
+                self.setState({
+                    profileUrl: config.domain + 'images/zport/'+ self.props.params.placeId + '/ico.jpg'
+                })
+            }
+            profileImg.onerror = function(){
+                self.setState({
+                    profileUrl: config.domain + 'site-images/default.ico'
+                })
+            }
+            profileImg.src = config.domain + 'images/zport/'+ this.props.params.placeId + '/ico.jpg';
+    },
     componentDidMount() {
-    var profileImg = new Image(),
-        self = this;
-        profileImg.onload = function(){
-            self.setState({
-                profileUrl: config.domain + 'images/zport/'+ self.props.params.placeId + '/ico.jpg'
-            })
-        }
-        profileImg.onerror = function(){
-            self.setState({
-                profileUrl: config.domain + 'site-images/default.ico'
-            })
-        }
-        profileImg.src = config.domain + 'images/zport/'+ this.props.params.placeId + '/ico.jpg';
+    this.socButton();
+    this.checkImg();
     this.setState({
             placeId: this.props.params.placeId,
             display: 2,
@@ -147,6 +162,16 @@ render() {
                         </li>
                         <li className="list-group-item">
                             <i className="glyphicon glyphicon-hand-right"></i>   <Link to={'/guides/'+this.state.place.id}>Путеводитель для {this.state.place.title}</Link>
+                        </li>
+                        <li className="list-group-item">
+                            <div className="pluso"
+                                data-background="#ebebeb"
+                                data-options="medium,square,line,horizontal,counter,theme=04"
+                                data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print"
+                                data-url={'http://gport-map.tk/#/place/'+this.state.place.title}
+                                data-title={this.state.place.title}
+                                data-description={this.state.place.description}>
+                            </div>
                         </li>
                     </ul>
                 </div>
