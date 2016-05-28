@@ -14,6 +14,7 @@ var Place = React.createClass({
         return { display: 2,
             placeId: this.props.params.placeId,
             mainTable:'',
+            profileUrl:'',
             place: {
                 type:'',
                 description:'',
@@ -29,6 +30,20 @@ var Place = React.createClass({
         };
     },
     componentDidMount() {
+    var profileImg = new Image(),
+        self = this;
+        profileImg.src = config.domain + 'images/zport/'+ this.state.place.id + '/ico.jpg';
+        profileImg.onload = function(){
+            self.setState({
+                profileUrl: config.domain + 'images/zport/'+ this.state.place.id + '/ico.jpg'
+            })
+
+        }
+        profileImg.onerror = function(){
+            self.setState({
+                profileUrl: config.domain + 'site-images/default.ico'
+            })
+        }
     this.setState({
             placeId: this.props.params.placeId,
             display: 2,
@@ -74,7 +89,7 @@ var Place = React.createClass({
         }
     },
 render() {
-    return (
+        return (
         <div>
             <div className="col-md-12 place-title">
                 <ul className="nav nav-pills"  onClick={this.handleSubmit}>
@@ -92,7 +107,7 @@ render() {
             </div>
             <div className="location-block col-md-12">
                 <div className="col-md-4">
-                    <div><img className="img-rounded" src={config.domain + 'images/zport/'+ this.state.place.id + '/ico.jpg'} /></div>
+                    <div><img className="img-rounded" src={this.state.profileUrl} /></div>
                 </div>
                 <div className="col-md-8">
                     <ul className="list-group">

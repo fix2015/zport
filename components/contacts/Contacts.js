@@ -15,7 +15,7 @@ var Contacts = React.createClass({
     }
 },
 componentDidMount(){
-
+    VK.Widgets.Group("vk_groups", {mode: 0, width: "275", height: "400"}, 14959699);
 },
 
 render() {
