@@ -48,7 +48,7 @@ var LocationItem = React.createClass({
                                 <i className="glyphicon glyphicon-star"></i> Тип: {helper.type(this.props.data.type)}
                                 </li>
                                 <li className="list-group-item">
-                                    <i className="glyphicon glyphicon-send"></i> Дистанция: {this.props.data.distance} / 5
+                                    <i className="glyphicon glyphicon-send"></i> Дистанция: {this.props.data.distance}
                                 </li>
                                 <li className="list-group-item">
                                     <i className="glyphicon glyphicon-shopping-cart"></i> Удобства: <i className={this.props.data.toilet==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
