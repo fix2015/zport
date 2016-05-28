@@ -32,18 +32,17 @@ var Place = React.createClass({
     componentDidMount() {
     var profileImg = new Image(),
         self = this;
-        profileImg.src = config.domain + 'images/zport/'+ this.state.place.id + '/ico.jpg';
         profileImg.onload = function(){
             self.setState({
-                profileUrl: config.domain + 'images/zport/'+ this.state.place.id + '/ico.jpg'
+                profileUrl: config.domain + 'images/zport/'+ self.props.params.placeId + '/ico.jpg'
             })
-
         }
         profileImg.onerror = function(){
             self.setState({
                 profileUrl: config.domain + 'site-images/default.ico'
             })
         }
+        profileImg.src = config.domain + 'images/zport/'+ this.props.params.placeId + '/ico.jpg';
     this.setState({
             placeId: this.props.params.placeId,
             display: 2,
