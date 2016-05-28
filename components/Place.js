@@ -168,7 +168,7 @@ render() {
                                 data-background="#ebebeb"
                                 data-options="medium,square,line,horizontal,counter,theme=04"
                                 data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print"
-                                data-url={'http://gport-map.tk/#/place/'+this.state.place.id}
+                                data-url={config.domain +'#/place/'+this.state.place.id}
                                 data-title={this.state.place.title}
                                 data-description={this.state.place.description}>
                             </div>
