@@ -220,3 +220,10 @@ a.list-group-item span.createdAt {
 .location-block .list-group i{
     padding-right: 5px;
 }
+#vk_groups{
+    padding-top: 60px;
+}
+.myName{
+    position: relative;
+    top: 65px;
+}

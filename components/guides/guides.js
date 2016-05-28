@@ -11,7 +11,7 @@ var MainNav = require('../MainNav');
 var Link = require('react-router').Link;
 var helper = require('../helper');
 var endPoint = helper.endPoint
-var FotoFolder = React.createClass({
+var Guides = React.createClass({
     getInitialState(){
         return {
             fulldata: {},
@@ -79,7 +79,7 @@ var FotoFolder = React.createClass({
                 })
             })
             setTimeout(function(){
-                self.calcRoute({target: {value: 'stambul'}})
+                self.calcRoute({target: {value: 'bazarNew'}})
             },200)
     },
 
@@ -123,11 +123,11 @@ var FotoFolder = React.createClass({
                 </div>
                 <div className="col-md-12">
                     <div className="col-md-6"><img src={config.domain + 'site-images/'+ this.state.url}/></div>
-                    <div className="col-md-6">{this.state.description}/</div>
+                    <div className="col-md-6">{this.state.description}</div>
                 </div>
             </div>
             );
     }
     });
 
-module.exports = FotoFolder;
+module.exports = Guides;

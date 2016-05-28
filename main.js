@@ -9,6 +9,7 @@ var hashHistory = require('react-router').hashHistory;
 var Route = require('react-router').Route;
 var Link = require('react-router').Link
 var Guides = require('./components/guides/guides');
+var Contacts = require('./components/contacts/contacts');
 
 ReactDOM.render(
     <Router history={hashHistory} >
@@ -20,6 +21,9 @@ ReactDOM.render(
         </Route>
         <Route path="guides"  name="Guides" component={Guides}>
             <Route path="/guides/:placeName" component={Guides}/>
+        </Route>
+        <Route path="contacts"  name="Contacts" component={Contacts}>
+            <Route path="/contact/us" component={Contacts}/>
         </Route>
     </Router>
     ,
