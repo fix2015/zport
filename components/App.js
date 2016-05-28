@@ -16,7 +16,7 @@ var filterData = helper.filterData;
 var App = React.createClass({
 
 	getInitialState(){
-        var type = (this.props.params.type ? this.props.params.type : '');
+        var type = (this.props.params.type ? this.props.params.type : 'chast');
 		var favorites = [];
         favorites = restaurants;
         this.getDataDromDB();
@@ -213,7 +213,7 @@ var App = React.createClass({
 
 
 
-    var routeType = this.props.params.type;
+    var routeType = (this.props.params.type ? this.props.params.type : 'chast');
     return (
 			<div>
                 <div className="col-md-12">
