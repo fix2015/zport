@@ -38,7 +38,7 @@ var LocationItem = React.createClass({
                 <Link to={'/place/'+this.props.data.id} className="location-title">
                     <h4 className="location-title">{this.props.data.title}</h4>
                 </Link>
-                <a className={cn} onClick={this.handleClick} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
+                <a className={cn} onClick={this.handleClick}>
                     <div class="raw" className="location-block">
                         <div className={this.state.toogle} >
                             <ul class="list-group">
