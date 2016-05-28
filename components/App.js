@@ -215,12 +215,15 @@ var App = React.createClass({
 
     var routeType = (this.props.params.type ? this.props.params.type : 'chast');
     return (
-			<div>
+			<div className="main-page">
+                <div className="col-md-12 header-img">
+                    <img src="site-images/header-img.jpg"/>
+                </div>
                 <div className="col-md-12">
                     <MainNav type={routeType} typeFilter={this.typeFilter}></MainNav>
                 </div>
-                <div className="col-md-12">
-				    <h2>Поиск жилья в железном порту</h2>
+                <div className="col-md-12 main-label">
+				    <h1>Поиск жилья в железном порту</h1>
                 </div>
                 <div className="col-md-12">
                     <SearchField onSearch={this.searchForAddress} onFilterInput={this.handleFilterText} filterText={this.state.filterText}/>
