@@ -100,6 +100,35 @@ var Map = React.createClass({
                 return (data.parking==props.filter.parking || props.filter.parking=='') ? true : false
             })
             .map(function(data){
+                var icon = 'images/green-icon.png'
+                switch(data.type){
+                    case 'chast':
+                        icon = 'images/chast.png'
+                        break;
+                    case 'pansionat':
+                        icon = 'images/pansionat.png'
+                        break;
+                    case 'hotel':
+                        icon = 'images/hotel.png'
+                        break;
+                    case 'sanatoriy':
+                        icon = 'images/sanatoriy.png'
+                        break;
+                    case 'otel':
+                        icon = 'images/otel.png'
+                        break;
+                    case 'children':
+                        icon = 'images/children.png'
+                        break;
+                    case 'basi':
+                        icon = 'images/basi.png'
+                        break;
+                    case 'room':
+                        icon = 'images/room.png'
+                        break;
+                    default:
+
+                }
                 var marker = map.addMarker({
                         lat: data.lat,
                         lng: data.lng,
@@ -109,7 +138,7 @@ var Map = React.createClass({
                     infoWindow: {
                         content: self.infoWindow(data)
                     }
-                }).setIcon("images/green-icon.png");
+                }).setIcon(icon);
                 gmarkers.push(marker);
 
         })
