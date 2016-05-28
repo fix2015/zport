@@ -230,29 +230,36 @@ a.list-group-item span.createdAt {
 .nav-pills{
     padding-top: 12px;
 }
-.header-img{
-    position: absolute;
-    left: 0;
+@media (max-width: 559px){
+    .header-img{
+        display: none;
+    }
 }
-.header-img img{
-    width: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    height: 277px;
-    margin-top: -20px;
-}
-.main-page .main-label{
-    color: #fff;
-}
-.main-page .main-label h1{
-    color: #FFF;
-    position: relative;
-    top: 30px;
-    padding-top: 19px;
-}
-.main-page .nav-pills li a{
-    color: #fff;
+@media (min-width: 560px){
+    .header-img{
+        position: absolute;
+        left: 0;
+    }
+    .header-img img{
+        width: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        height: 277px;
+        margin-top: -20px;
+    }
+    .main-page .main-label{
+        color: #fff;
+    }
+    .main-page .main-label h1{
+        color: #FFF;
+        position: relative;
+        top: 30px;
+        padding-top: 19px;
+    }
+    .main-page .nav-pills li a{
+        color: #fff;
+    }
 }
 @media (max-width: 992px){
     .main-page .main-label h1{
