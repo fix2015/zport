@@ -99,12 +99,14 @@ var Guides = React.createClass({
                 <div className="col-md-12">
                     <h3>Путеводитель для  -  <Link to={'/place/'+this.state.fulldata.id} className="location-title"> {this.state.fulldata.title}</Link> </h3>
                 </div>
-                <div className="col-md-12">
-                    <div id="floating-panel">
+                <div className="col-md-12" id="floating-panel">
+                    <div  className="col-md-6">
                         <b>Начало: </b>
                         <select id="start" onChange={this.calcRoute}>
                             <option value="chicago, il">{this.state.fulldata.title}</option>
                         </select>
+                    </div>
+                    <div className="col-md-6">
                         <b>Конечная точка: </b>
                         <select id="end" onChange={this.calcRoute}>
                             {end}
