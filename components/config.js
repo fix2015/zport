@@ -3,6 +3,6 @@
  */
 var data={}
 
-data.domain = 'http://zport-search.tk/'
+data.domain = 'http://gport-map.tk/'
 
 module.exports = data;
