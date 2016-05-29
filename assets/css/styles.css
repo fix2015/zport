@@ -238,6 +238,12 @@ a.list-group-item span.createdAt {
         float: none;
         padding:1px
     }
+    .map-list-preview .list-group{
+        display: none;
+    }
+    .map-list-preview h4{
+        font-size: 14px;
+    }
 }
 @media (min-width: 560px){
     .header-img{
