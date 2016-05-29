@@ -36,6 +36,29 @@ data.type =  function(data){
     }
     return type;
 };
+data.socialButton =[
+    {
+        link: 'https://vk.com/gport',
+        url: 'site-images/soc-icon/vk.png'
+    },
+    {
+        link: 'https://www.youtube.com/channel/UCRVZ2jPsor1wUEMTxlSg1Kw',
+        url: 'site-images/soc-icon/youtube.png'
+    },
+    {
+        link: 'https://www.instagram.com/gportvlog/',
+        url: 'site-images/soc-icon/instagram.png'
+    },
+    {
+        link: 'https://twitter.com/GportUkraine',
+        url: 'site-images/soc-icon/twitter.png'
+    },
+    {
+        link: 'https://www.takeit.to/gport/',
+        url: 'site-images/soc-icon/tito.png'
+    }
+]
+
 data.filterData =[
     {type: 'chast', distance: '100', toilet: true,  tv: true, refrigeter: true, conditioner: true, wifi: true, eat: true, children: true, swiming: true, parking: true},
     {type: 'pansionat', distance: '200', toilet: false,  tv: false, refrigeter: false, conditioner: false, wifi: false, eat: false, children: false, swiming: false, parking: false},

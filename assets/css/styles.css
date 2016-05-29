@@ -240,7 +240,7 @@ a.list-group-item span.createdAt {
         position: absolute;
         left: 0;
     }
-    .header-img img{
+    .header-img .main-img{
         width: 100%;
         left: 0;
         position: absolute;
@@ -255,7 +255,7 @@ a.list-group-item span.createdAt {
         color: #FFF;
         position: relative;
         top: 30px;
-        padding-top: 19px;
+        padding-top: 10px;
     }
     .main-page .nav-pills li a{
         color: #fff;
@@ -273,9 +273,20 @@ a.list-group-item span.createdAt {
         display: none;
     }
     .main-page #geocoding_form{
-        margin: 40px auto 100px;
+        margin: 65px auto 100px;
     }
     .main-page .header-img{
         position: relative
     }
+}
+.social-button {
+    position: fixed;
+    z-index: 1;
+    top: 247px;
+    right: 100px;
+}
+.social-button li{
+    cursor: pointer;
+    padding: 5px 10px 5px 10px;
+    background-color: rgba(102,102,102,0.5);
 }

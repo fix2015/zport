@@ -9,6 +9,7 @@ var SearchComponent = require('./SearchComponent');
 restaurants = require('../restaurants');
 var helper = require('./helper');
 var MainNav = require('./MainNav');
+var Social = require('./social/social');
 gmarkers = [];
 //restaurants = '';
 
@@ -217,7 +218,9 @@ var App = React.createClass({
     return (
 			<div className="main-page">
                 <div className="col-md-12 header-img">
-                    <img src="site-images/header-img.jpg"/>
+                    <Social></Social>
+
+                    <img className="main-img" src="site-images/header-img.jpg"/>
                 </div>
                 <div className="col-md-12">
                     <MainNav type={routeType} typeFilter={this.typeFilter}></MainNav>
