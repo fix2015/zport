@@ -270,6 +270,9 @@ a.list-group-item span.createdAt {
     .main-page .nav-pills li a{
         color: #fff;
     }
+    .guide h3{
+        font-size: 18px;
+    }
 }
 @media (max-width: 992px){
     .main-page .main-label h1{

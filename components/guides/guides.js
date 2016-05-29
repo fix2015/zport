@@ -92,7 +92,7 @@ var Guides = React.createClass({
         var distance = this.state.legs.distance ? this.state.legs.distance.value : ''
         var put =  <h4>Дорога до - {distance}</h4>
         return (
-            <div>
+            <div className="guide">
                 <div className="col-md-12">
                     <MainNav type="" typeFilter=""></MainNav>
                 </div>
