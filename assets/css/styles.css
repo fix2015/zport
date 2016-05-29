@@ -280,9 +280,9 @@ a.list-group-item span.createdAt {
     }
 }
 .social-button {
-    position: fixed;
+    position: absolute;
     z-index: 1;
-    top: 247px;
+    top: 226px;
     right: 100px;
 }
 .social-button li{
