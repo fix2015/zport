@@ -231,8 +231,12 @@ a.list-group-item span.createdAt {
     padding-top: 12px;
 }
 @media (max-width: 559px){
-    .header-img{
+    .header-img, .mark-map-block, .main-map-block  {
         display: none;
+    }
+    .nav-pills>li {
+        float: none;
+        padding:1px
     }
 }
 @media (min-width: 560px){
