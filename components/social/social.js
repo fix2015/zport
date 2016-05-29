@@ -19,7 +19,7 @@ render() {
     console.log(helper)
     var socialButton = helper.socialButton
         .map(function(data){
-            return  <li><a href={data.link}><img src={data.url}/></a></li>
+            return  <li><a target="_blank" href={data.link}><img src={data.url}/></a></li>
         })
     return (
         <div>
