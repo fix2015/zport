@@ -219,7 +219,6 @@ var App = React.createClass({
 			<div className="main-page">
                 <div className="col-md-12 header-img">
                     <Social></Social>
-
                     <img className="main-img" src="site-images/header-img.jpg"/>
                 </div>
                 <div className="col-md-12">

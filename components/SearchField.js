@@ -13,26 +13,28 @@ var SearchField = React.createClass({
 	},
 
 	handleSubmit(event){
-		
 		event.preventDefault();
-		
-		// When the form is submitted, call the onSearch callback that is passed to the component
-
 		this.props.onChooseType(this.state.value);
-
-		// Unfocus the text input field
 		this.getDOMNode().querySelector('input').blur();
 	},
+    componentDidMount(){
 
+    },
 	render() {
-
+        var searchList = restaurants
+            .map(function(data){
+               return  <option>{data.title}</option>
+            })
 		return (
 			<form id="geocoding_form" className="form-horizontal" onSubmit={this.handleSubmit}>
 				<div className="form-group">
 					<div className="col-xs-12">
 						<div className="input-group">
 							<input type="text" className="form-control" id="address" placeholder="Find a location..." 
-							value={this.props.filterText} onChange={this.handleChange} />
+							value={this.props.filterText} onChange={this.handleChange} list="search_list" />
+                            <datalist id="search_list">
+                                {searchList}
+                            </datalist>
 							<span className="input-group-btn">
 								<span className="glyphicon glyphicon-search" aria-hidden="true"></span>
 							</span>
