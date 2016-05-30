@@ -22,19 +22,19 @@ var MainNav = React.createClass({
 
     render() {
     var routeType= this.props.type,
-        NavBar = helper.filterData
+        NavBar = helper.filterData.type
         .map(function(data,index){
             active = '';
-            if(data.type==routeType){ active = "active"}
+            if(data==routeType){ active = "active"}
             if(index<6){
                 return <li className={active}>
-                            <Link to={'/'+ data.type}>
-                               {helper.type(data.type)}
+                            <Link to={'/'+ data}>
+                               {helper.type(data)}
                             </Link>
                         </li>
             };
         })
-    var NavBarDrop = helper.filterData
+/*    var NavBarDrop = helper.filterData.type
             .map(function(data,index){
                 if(index>3){
                     return <li className={active}>
@@ -43,7 +43,7 @@ var MainNav = React.createClass({
                                 </Link>
                             </li>
                 }
-        })
+        })*/
         return (<div>
                     <ul className="nav nav-pills"  onClick={this.handleSubmit}>
                         <li className='active'><a href="#">Главная</a></li>

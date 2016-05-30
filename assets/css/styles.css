@@ -231,7 +231,7 @@ a.list-group-item span.createdAt {
     padding-top: 12px;
 }
 @media (max-width: 559px){
-    .header-img, .mark-map-block, .main-map-block  {
+    .header-img, .mark-map-block {
         display: none;
     }
     .nav-pills>li {

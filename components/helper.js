@@ -59,18 +59,78 @@ data.socialButton =[
     }
 ]
 
-data.filterData =[
-    {type: 'chast', distance: '100', toilet: true,  tv: true, refrigeter: true, conditioner: true, wifi: true, eat: true, children: true, swiming: true, parking: true},
-    {type: 'pansionat', distance: '200', toilet: false,  tv: false, refrigeter: false, conditioner: false, wifi: false, eat: false, children: false, swiming: false, parking: false},
-    {type: 'hotel', distance: '300'},
-    {type: 'sanatoriy', distance: '400'},
-    {type: 'otel', distance: '500'},
-    {type: 'children', distance: '600'},
-    {type: 'basi', distance: '700'},
-    {type: 'room', distance: '800'},
-    {type: 'children', distance: '900'}
+data.filterData ={
+    type: [
+            'chast',
+            'pansionat',
+            'hotel',
+            'sanatoriy',
+            'otel',
+            'children',
+            'basi',
+            'room',
+            'children'
+        ]
+    ,
+    distance: [
+            '100',
+            '200',
+            '300',
+            '400',
+            '500',
+            '600',
+            '700',
+            '800',
+            '900'
+        ]
+    ,
+    toilet:  [
+            true,
+            false
+        ],
+     tv:  [
+            true,
+            false
+        ],
+    refrigeter:  [
+            true,
+            false
+        ],
+    conditioner:  [
+            true,
+            false
+        ],
+    wifi: [
+            true,
+            false
+        ],
+    eat:  [
+            true,
+            false
+        ],
+    children:  [
+            true,
+            false
+        ],
+    swiming:  [
+            true,
+            false
+        ]
+    }
 
-];
+
+/*
+{type: 'chast', distance: '100', toilet: true,  tv: true, refrigeter: true, conditioner: true, wifi: true, eat: true, children: true, swiming: true, parking: true},
+{type: 'pansionat', distance: '200', toilet: false,  tv: false, refrigeter: false, conditioner: false, wifi: false, eat: false, children: false, swiming: false, parking: false},
+{type: 'hotel', distance: '300'},
+{type: 'sanatoriy', distance: '400'},
+{type: 'otel', distance: '500'},
+{type: 'children', distance: '600'},
+{type: 'basi', distance: '700'},
+{type: 'room', distance: '800'},
+{type: 'children', distance: '900'}
+*/
+
 
 data.endPoint = [
     {

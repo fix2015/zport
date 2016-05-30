@@ -13,7 +13,6 @@ var Social = require('./social/social');
 gmarkers = [];
 //restaurants = '';
 
-var filterData = helper.filterData;
 var App = React.createClass({
 
 	getInitialState(){
@@ -229,6 +228,8 @@ var App = React.createClass({
                 </div>
                 <div className="col-md-12">
                     <SearchField onSearch={this.searchForAddress} onFilterInput={this.handleFilterText} filterText={this.state.filterText}/>
+                </div>
+                <div className="col-md-12">
                     <div className="col-md-7">
                         <Map filter= {this.state.filter} filterText={this.state.filterText} locations={this.state.favorites} removeMarkers={this.state.removeMarkers} lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
                     </div>
@@ -237,11 +238,11 @@ var App = React.createClass({
                         onClick={this.searchForAddress} />
                     </div>
                 </div>
-                <div className="main-map-block">
-                    <div className="col-md-12">
+                <div className="col-md-12">
+                    <div className="main-map-block">
                         <SearchComponent
+                        type={routeType}
                         onFilter={this.filterFunc}
-                        data={filterData}
                         onSearch={this.searchForAddress}
                         filterText={this.state.filterText}/>
                     </div>
