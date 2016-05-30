@@ -34,6 +34,7 @@ var SearchComponent = React.createClass({
               swiming: this.state.swiming,
               parking: this.state.parking
 		    };
+    console.log(filter)
     this.props.onFilter(filter);
   },
   onTypeChanged(e) {
@@ -145,6 +146,12 @@ var SearchComponent = React.createClass({
         self.pushToFilter();
     },200)
   },
+    componentDidMount(){
+        var self=this;
+        this.setState({
+            type: self.props.type
+        })
+    },
 	render() {
         var self=this;
 		var params = this.state;
