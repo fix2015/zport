@@ -14,7 +14,7 @@ data.type =  function(data){
             type = 'Пансионат'
             break;
         case 'hotel':
-            type = 'Готель'
+            type = 'Гостиницы'
             break;
         case 'sanatoriy':
             type = 'Санаторий'
