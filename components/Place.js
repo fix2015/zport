@@ -189,9 +189,6 @@ render() {
                 {this.state.images}
             </div>
             {this.state.mainTable}
-            <div className="col-md-12">
-                <Comments placeId={this.state.placeId}></Comments>
-            </div>
         </div>
         );
 }
@@ -200,6 +197,12 @@ render() {
 module.exports = Place;
 
 /*
+
+ <div className="col-md-12">
+ <Comments placeId={this.state.placeId}></Comments>
+ </div>
+
+
 
 <Breadcrumbs
 excludes={['Place']}
