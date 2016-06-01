@@ -9,6 +9,7 @@ var EditPlace = require('./editPlace');
 var Breadcrumbs = require('react-breadcrumbs');
 var Link = require('react-router').Link;
 var Comments = require('./comments/Comments');
+var FotoFolder = require('./FotoFolder');
 
 var Place = React.createClass({
     getInitialState: function () {
@@ -91,13 +92,11 @@ var Place = React.createClass({
                     })
                     .map(function(data){
                         var dataHouse = data;
+                        dataHouse.type = 'zport';
                         self.setState({
                             place:dataHouse,
                             description:dataHouse.description,
-                            images:dataHouse.image
-                            .map(function(data){
-                                return <div className='col-md-3 price-table-block-img'><img className='img-rounded' src={config.domain + 'images/zport/'+ dataHouse.id + '/' + data.name}/></div>
-                            }),
+                            images: <FotoFolder data={dataHouse}></FotoFolder>,
                             mainTable : dataHouse.room
                             .map(function(data){
                                 num++;
@@ -126,7 +125,9 @@ render() {
             </div>
             <div className="location-block col-md-12">
                 <div className="col-md-4">
-                    <div><img className="img-rounded" src={this.state.profileUrl} /></div>
+                        <a className="fancyimage" data-fancybox-group="group" href={this.state.profileUrl}>
+                            <img classNameName='img-responsive' src={this.state.profileUrl}/>
+                        </a>
                 </div>
                 <div className="col-md-8">
                     <ul className="list-group">

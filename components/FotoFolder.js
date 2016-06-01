@@ -18,10 +18,16 @@ var FotoFolder = React.createClass({
         var html = '',
             fotos = '',
             roomId = this.props.data.id;
+            type = this.props.data.type;
             if(this.props.data!=''){
                 fotos = this.props.data.image
                 .map(function(data){
-                    return <div className='col-md-3 price-table-block-img'><img className='img-rounded' src={config.domain + 'images/room/'+ roomId + '/' + data.name}/></div>
+                        console.log(data)
+                    return <div className="col-md-3 col-sm-4 col-xs-6 thumb foto-gallery">
+                                    <a className="fancyimage" data-fancybox-group="group" href={config.domain + 'images/'+type+'/'+ roomId + '/' + data.name}>
+                                        <img classNameName='img-responsive' src={config.domain + 'images/'+type+'/'+ roomId + '/' + data.name}/>
+                                    </a>
+                            </div>
                 })
             }
             return (

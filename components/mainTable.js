@@ -24,6 +24,9 @@ var PriceTable = React.createClass({
                 }};
     },
     componentDidMount() {
+    setTimeout(function(){
+        $("a.fancyimage").fancybox();
+    },2000)
         this.setState({
             num:2,
             type: this.props.num,
@@ -51,6 +54,7 @@ var PriceTable = React.createClass({
         this.state.num++
     },
     getImgFromFolder(images){
+        images.type = 'room'
         this.setState({
             fotoFolder: images
         })

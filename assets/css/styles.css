@@ -331,3 +331,6 @@ a.list-group-item span.createdAt {
     border-right-color:#ddd;
     border-width:8px;
 }
+.foto-gallery img{
+    vertical-align: baseline;
+}
