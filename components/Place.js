@@ -8,6 +8,7 @@ var config = require('./config');
 var EditPlace = require('./editPlace');
 var Breadcrumbs = require('react-breadcrumbs');
 var Link = require('react-router').Link;
+var Comments = require('./comments/Comments');
 
 var Place = React.createClass({
     getInitialState: function () {
@@ -15,6 +16,7 @@ var Place = React.createClass({
             placeId: this.props.params.placeId,
             mainTable:'',
             profileUrl:'',
+            post:'',
             place: {
                 type:'',
                 description:'',
@@ -56,6 +58,9 @@ var Place = React.createClass({
             profileImg.src = config.domain + 'images/zport/'+ this.props.params.placeId + '/ico.jpg';
     },
     componentDidMount() {
+    this.setState({
+        post : 'some'
+    })
     this.socButton();
     this.checkImg();
     this.setState({
@@ -180,9 +185,12 @@ render() {
                  {this.state.description}
             </div>
             <div className="col-md-12 location-block-description">
-            {this.state.images}
+                {this.state.images}
             </div>
             {this.state.mainTable}
+            <div className="col-md-12">
+                <Comments placeId={this.state.placeId}></Comments>
+            </div>
         </div>
         );
 }
