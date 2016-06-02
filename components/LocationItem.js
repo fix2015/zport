@@ -69,7 +69,7 @@ var LocationItem = React.createClass({
                                     <i className="glyphicon glyphicon-cd"></i> Wifi:  <i className={this.props.data.wifi==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                                 </li>
                                 <li className="list-group-item">
-                                    <i className="glyphicon glyphicon-apple"></i> Питание:   <i className={this.props.data.eat==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
+                                    <i className="glyphicon glyphicon-apple"></i> Питания:   <i className={this.props.data.eat==true ? "glyphicon glyphicon-ok" : " glyphicon glyphicon-remove"}></i>
                                 </li>
                             </ul>
                             <span className="glyphicon glyphicon-zoom-in"></span>

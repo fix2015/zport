@@ -266,7 +266,7 @@ var SearchComponent = React.createClass({
                     </div>
                     <div className="col-md-2">
                         <ul className="list-unstyled text-center">
-                            <li><strong>Десткие пл.</strong></li>
+                            <li><strong>Детские пл.</strong></li>
                             <li>
                                 <label className="btn btn-default">
                                     <input type="radio"

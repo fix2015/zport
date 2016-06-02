@@ -164,7 +164,7 @@ render() {
                             <i className="glyphicon glyphicon-phone-alt"></i> Контакты: <span> {this.state.place.phone}</span>
                         </li>
                         <li className="list-group-item">
-                            <i className="glyphicon glyphicon-map-marker"></i> Адресс: <span> {this.state.place.address}</span>
+                            <i className="glyphicon glyphicon-map-marker"></i> Адрес: <span> {this.state.place.address}</span>
                         </li>
                         <li className="list-group-item">
                             <i className="glyphicon glyphicon-hand-right"></i>   <Link to={'/guides/'+this.state.place.id}>Путеводитель для {this.state.place.title}</Link>
@@ -182,7 +182,7 @@ render() {
                     </ul>
                 </div>
             </div>
-            <div className="col-md-12 location-block-description">
+            <div className="col-md-12 location-block-description text-left">
                  {this.state.description}
             </div>
             <div className="col-md-12 location-block-description">
