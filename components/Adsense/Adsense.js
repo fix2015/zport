@@ -12,20 +12,20 @@ var Adsense = React.createClass({
     }
 },
 componentDidMount(){
+    (adsbygoogle = window.adsbygoogle || []).push({});
 },
 render() {
-    var style = {display: "inline-block", width: 500, height: 120}
+    var style = {display: "block"}
     return (
         <div>
             <ins
             className="adsbygoogle"
             style={style}
             data-ad-client="ca-pub-5661207093403381"
-            data-ad-slot="5215178953"
+            data-ad-slot="7250315357"
             />
         </div>
         );
-}
-});
+}});
 
 module.exports = Adsense;
