@@ -18,7 +18,7 @@ var FotoFolder = React.createClass({
         var html = '',
             fotos = '',
             roomId = this.props.data.id;
-            type = this.props.data.type;
+            type = this.props.data.typeHouse;
             if(this.props.data!=''){
                 fotos = this.props.data.image
                 .map(function(data){

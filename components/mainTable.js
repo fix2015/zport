@@ -52,7 +52,7 @@ var PriceTable = React.createClass({
         this.state.num++
     },
     getImgFromFolder(images){
-        images.type = 'room'
+        images.typeHouse = 'room'
         this.setState({
             fotoFolder: images
         })

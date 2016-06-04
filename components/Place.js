@@ -92,7 +92,7 @@ var Place = React.createClass({
                     })
                     .map(function(data){
                         var dataHouse = data;
-                        dataHouse.type = 'zport';
+                        dataHouse.typeHouse = 'zport';
                         self.setState({
                             place:dataHouse,
                             description:dataHouse.description,
