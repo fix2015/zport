@@ -10,6 +10,7 @@ restaurants = require('../restaurants');
 var helper = require('./helper');
 var MainNav = require('./MainNav');
 var Social = require('./social/social');
+var Adsense = require('./Adsense/Adsense');
 gmarkers = [];
 //restaurants = '';
 
@@ -232,6 +233,7 @@ var App = React.createClass({
                 <div className="col-md-12">
                     <div className="col-md-7">
                         <Map filter= {this.state.filter} filterText={this.state.filterText} locations={this.state.favorites} removeMarkers={this.state.removeMarkers} lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
+                    <Adsense></Adsense>
                     </div>
                     <div className="mark-map-block col-md-5">
                         <LocationList filter= {this.state.filter} filterText={this.state.filterText} clearFilter={this.clearFilter} locations={this.state.favorites} activeLocationAddress={this.state.currentAddress}
