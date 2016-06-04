@@ -15,7 +15,7 @@ componentDidMount(){
     (adsbygoogle = window.adsbygoogle || []).push({});
 },
 render() {
-    var style = {display: "block"}
+    var style = {display: "block", height:100}
     return (
         <div>
             <ins
