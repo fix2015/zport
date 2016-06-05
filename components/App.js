@@ -214,7 +214,7 @@ var App = React.createClass({
 
 
 
-    var routeType = (this.props.params.type ? this.props.params.type : 'chast');
+    var routeType = (this.props.params.type ? this.props.params.type : '');
     return (
 			<div className="main-page">
                 <div className="col-md-12 header-img">
