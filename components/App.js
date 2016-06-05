@@ -17,7 +17,7 @@ gmarkers = [];
 var App = React.createClass({
 
 	getInitialState(){
-        var type = (this.props.params.type ? this.props.params.type : 'chast');
+        var type = (this.props.params.type ? this.props.params.type : '');
 		var favorites = [];
         favorites = restaurants;
         this.getDataDromDB();
