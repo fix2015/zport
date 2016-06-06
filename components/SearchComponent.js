@@ -169,6 +169,7 @@ var SearchComponent = React.createClass({
                             <li className="text-center"><strong>Тип</strong></li>
                             <li>
                                 <select className="form-control"  onChange={this.onTypeChanged} >
+                                    <option selected = "true" value=""></option>
                                     {type}
                                 </select>
                             </li>
@@ -233,6 +234,7 @@ var SearchComponent = React.createClass({
                             <li className="text-center"><strong>Дистанция</strong></li>
                             <li>
                                 <select className="form-control"  onChange={this.onDistanceChanged} >
+                                    <option selected = "true" value=""></option>
                                     {distance}
                                 </select>
                             </li>
