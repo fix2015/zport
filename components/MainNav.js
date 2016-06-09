@@ -26,7 +26,7 @@ var MainNav = React.createClass({
         .map(function(data,index){
             active = '';
             if(data==routeType){ active = "active"}
-            if(index<6){
+            if(index<5){
                 return <li className={active}>
                             <Link to={'/'+ data}>
                                {helper.type(data)}
@@ -48,6 +48,11 @@ var MainNav = React.createClass({
                     <ul className="nav nav-pills"  onClick={this.handleSubmit}>
                         <li className='active'><a href="#">Главная</a></li>
                             {NavBar}
+                        <li>
+                            <Link to={'/infrastructure/gport'}>
+                                Инфраструктура
+                            </Link>
+                        </li>
                         <li>
                             <Link to={'/contact/us'}>
                                 Контакты

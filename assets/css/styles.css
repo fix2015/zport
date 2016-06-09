@@ -267,7 +267,7 @@ a.list-group-item span.createdAt {
         top: 30px;
         padding-top: 10px;
     }
-    .main-page .nav-pills li a{
+    .nav-pills li a{
         color: #fff;
     }
     .guide h3{
@@ -333,4 +333,12 @@ a.list-group-item span.createdAt {
 }
 .foto-gallery img{
     vertical-align: baseline;
+}
+.map-infrustractura{
+    padding-top: 220px;
+
+}
+.infrustractura #map {
+    max-width: 100%;
+    height: 550px;
 }
