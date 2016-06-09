@@ -10,6 +10,7 @@ var Route = require('react-router').Route;
 var Link = require('react-router').Link
 var Guides = require('./components/guides/guides');
 var Contacts = require('./components/contacts/Contacts');
+var Infrastructure = require('./components/Infrastructure/Infrastructure');
 
 ReactDOM.render(
     <Router history={hashHistory} >
@@ -18,6 +19,9 @@ ReactDOM.render(
         </Route>
         <Route path="place"  name="Place" component={Place}>
             <Route path="/place/:placeId" component={Place}/>
+        </Route>
+        <Route path="infrastructure"  name="Infrastructure" component={Infrastructure}>
+            <Route path="/infrastructure/gport" component={Infrastructure}/>
         </Route>
         <Route path="guides"  name="Guides" component={Guides}>
             <Route path="/guides/:placeName" component={Guides}/>
