@@ -679,6 +679,69 @@ data.endPoint = [
         url: 'tire.png',
         icon: 'tire.png',
         description: 'Шиномонтаж'
+    },
+    {
+        name: "canteen",
+        label: "Столовая №1",
+        lng: 32.28861451148987,
+        lat:46.12557104870162,
+        url: 'canteen.png',
+        icon: 'canteen.png',
+        description: 'Столовая №1'
+    },
+    {
+        name: "canteen",
+        label: "Столовая №2",
+        lng: 32.28861451148987,
+        lat:46.12557104870162,
+        url: 'canteen.png',
+        icon: 'canteen.png',
+        description: 'Столовая №2'
+    },
+    {
+        name: "canteen",
+        label: "Столовая Хуторок",
+        lng: 32.28600203990936,
+        lat:46.120532966548765,
+        url: 'canteen.png',
+        icon: 'canteen.png',
+        description: 'Столовая Хуторок'
+    },
+    {
+        name: "canteen",
+        label: "Столовая Блис",
+        lng: 32.29093998670578,
+        lat:46.1180844038112,
+        url: 'canteen.png',
+        icon: 'canteen.png',
+        description: 'Столовая Блис'
+    },
+    {
+        name: "canteen",
+        label: "Столовая Тройка",
+        lng: 32.29352295398712,
+        lat:46.11716779159258,
+        url: 'canteen.png',
+        icon: 'canteen.png',
+        description: 'Столовая Тройка'
+    },
+    {
+        name: "canteen",
+        label: "Столовая Баста Паста",
+        lng: 32.2928524017334,
+        lat:46.11730537736064,
+        url: 'canteen.png',
+        icon: 'canteen.png',
+        description: 'Столовая Баста Паста'
+    },
+    {
+        name: "canteen",
+        label: "Столовая Козацька Мрия",
+        lng: 32.30062544345856,
+        lat:46.115665481392895,
+        url: 'canteen.png',
+        icon: 'canteen.png',
+        description: 'Столовая Козацька Мрия'
     }
 
 ]
