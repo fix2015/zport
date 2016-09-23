@@ -3,14 +3,14 @@
  */
 var path = require('path');
 var express = require('express');
-var fotofolder = require('./fotofolder');
-var async = require('async');
+//var fotofolder = require('./fotofolder');
+//var async = require('async');
 var bodyParser = require('body-parser');
-var multer = require('multer');
-var upload = multer();
+//var multer = require('multer');
+//var upload = multer();
 
 var staticSiteOptions = {
-    portnum: 8080, // слушать порт 80
+    portnum: 8084, // слушать порт 80
     maxAge: 1000 * 60 * 1 // хранить страницы в кэше пятнадцать минут
 };
 
@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 
 
-app.get('/', function(req, res){
+/*app.get('/', function(req, res){
     res.send('Hello World');
 });
 
@@ -45,6 +45,6 @@ app.get('/foto/:firstFolder/:subFolder', function(req, res){
         res.json(img);
         //res.send(img);
     },1000)
-});
+});*/
 
-app.listen(8083);
+app.listen(8084);
